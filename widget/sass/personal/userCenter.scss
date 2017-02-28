@@ -1,0 +1,59 @@
+@import "../_config";
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.ui-body {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(248, 248, 248);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ui-top {
+    display: block;
+    width: 100%;
+    height: 1rem;
+    color: #fff;
+    text-align: center;
+    font-size: .35rem;
+    background-color: rgb(47, 65, 75);
+}
+
+#headPic {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    margin: .5rem auto .5rem auto;
+}
+
+.ui-headText {
+    display: block;
+    position: relative;
+    top: .3rem;
+}
+
+.ui-listPic {
+    display: block;
+    position: absolute;
+    top: .2rem;
+    left: .1rem;
+    width: .5rem;
+    height: .5rem;
+    @include bgi-full(url(../../image/placeholder.png));
+}
+
+.ui-listName {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding-left: .5rem;
+    line-height: .88rem;
+    font-size: .3rem;
+    color: black;
+}

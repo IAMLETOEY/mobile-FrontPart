@@ -1,0 +1,138 @@
+@import "../_config";
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.ui-body {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../image/account/black.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.ui-loginText {
+    display: block;
+    width: 100%;
+    height: .6rem;
+    padding-top: 2rem;
+    margin: auto;
+    color: #f7d047;
+    font-size: .4rem;
+    text-align: center;
+}
+
+.ui-login {
+    display: block;
+    width: 90%;
+    height: 3.3rem;
+    margin: 1rem auto;
+    padding-left: .4rem;
+    padding-right: .4rem;
+    background-color: #fff;
+    border-radius: 10px;
+    opacity: .8;
+}
+
+.ui-loginPhone {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 1.2rem;
+}
+
+.ui-loginPhone__pic {
+    display: block;
+    position: absolute;
+    top: .4rem;
+    left: .1rem;
+    width: .33rem;
+    height: .33rem;
+    @include bgi-full(url(../../image/account/person.png));
+}
+
+.ui-loginPhone__phone {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 1rem;
+    font-size: .3rem;
+    color: #333;
+    padding-left: .8rem;
+    padding-right: .4rem;
+    border: none;
+    border-bottom: 1px solid #123;
+    outline: none;
+}
+
+.ui-loginPsd {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 1.2rem;
+}
+
+.ui-loginPsd__pic {
+    display: block;
+    position: absolute;
+    top: .4rem;
+    left: .1rem;
+    width: .33rem;
+    height: .33rem;
+    @include bgi-full(url(../../image/account/lock.png));
+}
+
+.ui-loginPsd__psd {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 1rem;
+    font-size: .3rem;
+    color: #333;
+    padding-left: .8rem;
+    padding-right: .4em;
+    border: none;
+    border-bottom: 1px solid #123;
+    outline: none;
+}
+
+.ui-loginSure {
+    display: block;
+    width: 90%;
+    height: 1rem;
+    line-height: 1rem;
+    margin: auto;
+    color: #fff;
+    font-size: .32rem;
+    text-align: center;
+    background-color: #f7d047;
+    border-radius: 5px;
+}
+
+.ui-noAccount {
+    display: block;
+    width: 90%;
+    height: .3rem;
+	margin: 0.5rem auto 1rem auto;
+}
+
+.ui-line {
+    display: block;
+    width: 30%;
+    height: .2rem;
+    border-bottom:  1px solid #333;
+    float: left;
+}
+
+.ui-font {
+	display: block;
+    width: 35%;
+    height: .2rem;
+    font-size: .2rem;
+    text-align: center;
+    color: #f1f1f1;
+    float: left;
+}

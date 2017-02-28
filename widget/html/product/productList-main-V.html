@@ -1,0 +1,12 @@
+<div class="ui-body">
+    <div class="ui-product" v-for="item in list" v-touch:tap="onToTap($index)">
+        <div class="ui-productPic" style="background-image: url({{item.pic}});"></div>
+        <div class="ui-productText">
+            <p>{{item.text}}</p>
+            <span class="ui-sellerPrice">{{item.sellerPrice}}</span>
+            <span class="ui-imputedPrice1"> 估算价:</span><span class="ui-imputedPrice2">  {{item.imputedPrice}}</span>
+        </div>
+    </div>
+</div>
+
+

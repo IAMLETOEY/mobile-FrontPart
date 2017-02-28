@@ -1,0 +1,34 @@
+<div class="ui-body">
+    <div class="page__bd">
+        <div class="weui-form-preview" v-for="item in list" v-touch:tap="onToTap($index)" style="margin-bottom: 2rem;">
+            <div class="weui-form-preview__hd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">订单金额</label>
+                    <em class="weui-form-preview__value">￥{{item.price}}</em>
+                </div>
+            </div>
+            <div class="weui-form-preview__bd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">商品</label>
+                    <span class="weui-form-preview__value">{{item.product}}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">交易状态</label>
+                    <span class="weui-form-preview__value">{{item.status}}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">快递单号</label>
+                    <span class="weui-form-preview__value">{{item.transport}}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">收货地址</label>
+                    <span class="weui-form-preview__value">{{item.address}}</span>
+                </div>
+            </div>
+            <div class="weui-form-preview__ft">
+                <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">查看发货图片</a>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

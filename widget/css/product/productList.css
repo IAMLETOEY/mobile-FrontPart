@@ -1,0 +1,90 @@
+@charset "UTF-8";
+/* @name: 转为REM单位fn
+ * @ps: 默认宽度为750px
+ */
+/* @name: 上下左右居中 (未知高度)
+ * @ps: 需要设置父元素 display:table
+ */
+/* @name: 上下左右居中 （确定高度）*/
+/*
+ * @name: 文字溢出显示省略号
+ * @ps: 需要设置宽度
+ */
+/* @name: 强制不换行 */
+/* @name: 清除浮动 */
+/*
+ * @name:  三角形
+ * @param: $size  大小
+ * @param: $color 颜色
+ * @param: $type {string}  类型 (up || down || left || right || topleft || topright || bottomleft || bottomright)
+ */
+/* 主色调 */
+/* 辅助色 */
+/* 标题栏背景色 */
+/* 页面背景色 */
+/* 分隔线颜色 */
+/* 字体主色 */
+/* 字体辅助色 */
+/* 一级标题 */
+/* 二级标题 */
+/* 三级标题 */
+/* 正文 */
+/* 说明文字 */
+/* 导航字体 */
+/* 按钮圆角 */
+/* 遮罩透明度 */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8; }
+
+.ui-body {
+  display: block;
+  width: 100%;
+  background-repeat: no-repeat;
+  -webkit-background-size: 100% 100%;
+     -moz-background-size: 100% 100%;
+       -o-background-size: 100% 100%;
+          background-size: 100% 100%; }
+
+.ui-product {
+  font-size: 0;
+  display: block;
+  float: left;
+  width: 48%;
+  height: 5rem;
+  margin: 1% 1%;
+  padding-bottom: 2%;
+  background-color: white; }
+
+.ui-productPic {
+  display: block;
+  width: 90%;
+  height: 3rem;
+  margin: .2rem auto;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-size: 100% 100%;
+     -moz-background-size: 100% 100%;
+       -o-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-image: url(../../image/placeholder.png); }
+
+.ui-productText {
+  font-size: .3rem;
+  text-align: center; }
+
+.ui-sellerPrice {
+  color: red;
+  font-weight: bold; }
+
+.ui-imputedPrice1 {
+  font-size: .25rem; }
+
+.ui-imputedPrice2 {
+  font-size: .25rem;
+  text-decoration: line-through; }
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInByb2R1Y3RMaXN0LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxrQkFBaUI7QUFDakI7O0lBRUc7QUFDSDs7SUFFRztBQUNILDBCQUF5QjtBQUN6Qjs7O0lBR0c7QUFDSCxtQkFBa0I7QUFDbEIsa0JBQWlCO0FBQ2pCOzs7OztJQUtHO0FBQ0gsVUFBUztBQUNULFVBQVM7QUFDVCxhQUFZO0FBQ1osWUFBVztBQUNYLFlBQVc7QUFDWCxXQUFVO0FBQ1YsWUFBVztBQUNYLFdBQVU7QUFDVixXQUFVO0FBQ1YsV0FBVTtBQUNWLFNBQVE7QUFDUixXQUFVO0FBQ1YsV0FBVTtBQUNWLFdBQVU7QUFDVixZQUFXO0FBQ1g7O0VBRUUsYUFBWTtFQUNaLGNBQWE7RUFDYiwyQkFBMEIsRUFBRTs7QUFFOUI7RUFDRSxnQkFBZTtFQUNmLGFBQVk7RUFDWiw4QkFBNkI7RUFDN0Isb0NBQTJCO0tBQTNCLGlDQUEyQjtPQUEzQiwrQkFBMkI7VUFBM0IsNEJBQTJCLEVBQUU7O0FBRS9CO0VBQ0UsY0FBYTtFQUNiLGdCQUFlO0VBQ2YsYUFBWTtFQUNaLFlBQVc7RUFDWCxjQUFhO0VBQ2IsZUFBYztFQUNkLG9CQUFtQjtFQUNuQix5QkFBd0IsRUFBRTs7QUFFNUI7RUFDRSxnQkFBZTtFQUNmLFlBQVc7RUFDWCxjQUFhO0VBQ2Isb0JBQW1CO0VBQ25CLDhCQUE2QjtFQUM3QiwwQkFBeUI7RUFDekIsb0NBQTJCO0tBQTNCLGlDQUEyQjtPQUEzQiwrQkFBMkI7VUFBM0IsNEJBQTJCO0VBQzNCLG9EQUFtRCxFQUFFOztBQUV2RDtFQUNFLGtCQUFpQjtFQUNqQixvQkFBbUIsRUFBRTs7QUFFdkI7RUFDRSxZQUFXO0VBQ1gsbUJBQWtCLEVBQUU7O0FBRXRCO0VBQ0UsbUJBQWtCLEVBQUU7O0FBRXRCO0VBQ0UsbUJBQWtCO0VBQ2xCLCtCQUE4QixFQUFFIiwiZmlsZSI6InByb2R1Y3QvcHJvZHVjdExpc3QuY3NzIiwic291cmNlUm9vdCI6Ii4uL3Nhc3MvIn0= */

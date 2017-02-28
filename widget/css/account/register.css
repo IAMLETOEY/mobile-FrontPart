@@ -1,0 +1,204 @@
+@charset "UTF-8";
+/* @name: 转为REM单位fn
+ * @ps: 默认宽度为750px
+ */
+/* @name: 上下左右居中 (未知高度)
+ * @ps: 需要设置父元素 display:table
+ */
+/* @name: 上下左右居中 （确定高度）*/
+/*
+ * @name: 文字溢出显示省略号
+ * @ps: 需要设置宽度
+ */
+/* @name: 强制不换行 */
+/* @name: 清除浮动 */
+/*
+ * @name:  三角形
+ * @param: $size  大小
+ * @param: $color 颜色
+ * @param: $type {string}  类型 (up || down || left || right || topleft || topright || bottomleft || bottomright)
+ */
+/* 主色调 */
+/* 辅助色 */
+/* 标题栏背景色 */
+/* 页面背景色 */
+/* 分隔线颜色 */
+/* 字体主色 */
+/* 字体辅助色 */
+/* 一级标题 */
+/* 二级标题 */
+/* 三级标题 */
+/* 正文 */
+/* 说明文字 */
+/* 导航字体 */
+/* 按钮圆角 */
+/* 遮罩透明度 */
+html,
+body {
+  width: 100%;
+  height: 100%; }
+
+.ui-body {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url(../../image/account/black.png);
+  background-repeat: no-repeat;
+  -webkit-background-size: 100% 100%;
+     -moz-background-size: 100% 100%;
+       -o-background-size: 100% 100%;
+          background-size: 100% 100%; }
+
+.ui-registerText {
+  display: block;
+  width: 100%;
+  height: .6rem;
+  padding-top: 2rem;
+  margin: auto;
+  color: #f7d047;
+  font-size: .4rem;
+  text-align: center; }
+
+.ui-register {
+  display: block;
+  width: 90%;
+  height: 6rem;
+  margin: 1rem auto;
+  padding-left: .4rem;
+  padding-right: .4rem;
+  background-color: #fff;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px;
+  opacity: .8; }
+
+.ui-registerPhone {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 1.2rem; }
+
+.ui-registerPhone__pic {
+  display: block;
+  position: absolute;
+  top: .4rem;
+  left: .1rem;
+  width: .33rem;
+  height: .33rem;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-size: 100% 100%;
+     -moz-background-size: 100% 100%;
+       -o-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-image: url(../../image/account/phone.png); }
+
+.ui-registerPhone__phone {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 1rem;
+  font-size: .3rem;
+  color: #333;
+  padding-left: .8rem;
+  padding-right: .4rem;
+  border: none;
+  outline: none; }
+
+.ui-registerPsd {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 1.2rem; }
+
+.ui-registerPsd__pic {
+  display: block;
+  position: absolute;
+  top: .4rem;
+  left: .1rem;
+  width: .33rem;
+  height: .33rem;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-size: 100% 100%;
+     -moz-background-size: 100% 100%;
+       -o-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-image: url(../../image/account/lock.png); }
+
+.ui-registerPsd__psd {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 1rem;
+  font-size: .3rem;
+  color: #333;
+  padding-left: .8rem;
+  padding-right: .4em;
+  border: none;
+  border-top: 1px solid #123;
+  outline: none; }
+  .ui-registerPsd__psd:nth-child(1) {
+    border-top: none; }
+
+.ui-registerNick__pic {
+  display: block;
+  position: absolute;
+  top: .4rem;
+  left: .1rem;
+  width: .33rem;
+  height: .33rem;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-size: 100% 100%;
+     -moz-background-size: 100% 100%;
+       -o-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-image: url(../../image/account/nickname.png); }
+
+.ui-registerAdd__pic {
+  display: block;
+  position: absolute;
+  top: .4rem;
+  left: .1rem;
+  width: .33rem;
+  height: .33rem;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-size: 100% 100%;
+     -moz-background-size: 100% 100%;
+       -o-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-image: url(../../image/account/address.png); }
+
+.ui-registerId__pic {
+  display: block;
+  position: absolute;
+  top: .4rem;
+  left: .1rem;
+  width: .33rem;
+  height: .33rem;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-background-size: 100% 100%;
+     -moz-background-size: 100% 100%;
+       -o-background-size: 100% 100%;
+          background-size: 100% 100%;
+  background-image: url(../../image/account/id.png); }
+
+.ui-registerSure {
+  display: block;
+  width: 90%;
+  height: 1rem;
+  line-height: 1rem;
+  margin: auto;
+  color: #fff;
+  font-size: .32rem;
+  text-align: center;
+  background-color: #f7d047;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px; }
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlZ2lzdGVyLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxrQkFBaUI7QUFDakI7O0lBRUc7QUFDSDs7SUFFRztBQUNILDBCQUF5QjtBQUN6Qjs7O0lBR0c7QUFDSCxtQkFBa0I7QUFDbEIsa0JBQWlCO0FBQ2pCOzs7OztJQUtHO0FBQ0gsVUFBUztBQUNULFVBQVM7QUFDVCxhQUFZO0FBQ1osWUFBVztBQUNYLFlBQVc7QUFDWCxXQUFVO0FBQ1YsWUFBVztBQUNYLFdBQVU7QUFDVixXQUFVO0FBQ1YsV0FBVTtBQUNWLFNBQVE7QUFDUixXQUFVO0FBQ1YsV0FBVTtBQUNWLFdBQVU7QUFDVixZQUFXO0FBQ1g7O0VBRUUsYUFBWTtFQUNaLGNBQWEsRUFBRTs7QUFFakI7RUFDRSxnQkFBZTtFQUNmLGFBQVk7RUFDWixjQUFhO0VBQ2Isc0RBQXFEO0VBQ3JELDhCQUE2QjtFQUM3QixvQ0FBMkI7S0FBM0IsaUNBQTJCO09BQTNCLCtCQUEyQjtVQUEzQiw0QkFBMkIsRUFBRTs7QUFFL0I7RUFDRSxnQkFBZTtFQUNmLGFBQVk7RUFDWixlQUFjO0VBQ2QsbUJBQWtCO0VBQ2xCLGNBQWE7RUFDYixnQkFBZTtFQUNmLGtCQUFpQjtFQUNqQixvQkFBbUIsRUFBRTs7QUFFdkI7RUFDRSxnQkFBZTtFQUNmLFlBQVc7RUFDWCxjQUFhO0VBQ2IsbUJBQWtCO0VBQ2xCLHFCQUFvQjtFQUNwQixzQkFBcUI7RUFDckIsd0JBQXVCO0VBQ3ZCLDZCQUFvQjtLQUFwQiwwQkFBb0I7VUFBcEIscUJBQW9CO0VBQ3BCLGFBQVksRUFBRTs7QUFFaEI7RUFDRSxnQkFBZTtFQUNmLG9CQUFtQjtFQUNuQixhQUFZO0VBQ1osZ0JBQWUsRUFBRTs7QUFFbkI7RUFDRSxnQkFBZTtFQUNmLG9CQUFtQjtFQUNuQixZQUFXO0VBQ1gsYUFBWTtFQUNaLGVBQWM7RUFDZCxnQkFBZTtFQUNmLDhCQUE2QjtFQUM3QiwwQkFBeUI7RUFDekIsb0NBQTJCO0tBQTNCLGlDQUEyQjtPQUEzQiwrQkFBMkI7VUFBM0IsNEJBQTJCO0VBQzNCLHNEQUFxRCxFQUFFOztBQUV6RDtFQUNFLGdCQUFlO0VBQ2YsYUFBWTtFQUNaLGNBQWE7RUFDYixtQkFBa0I7RUFDbEIsa0JBQWlCO0VBQ2pCLGFBQVk7RUFDWixxQkFBb0I7RUFDcEIsc0JBQXFCO0VBQ3JCLGNBQWE7RUFDYixlQUFjLEVBQUU7O0FBRWxCO0VBQ0UsZ0JBQWU7RUFDZixvQkFBbUI7RUFDbkIsYUFBWTtFQUNaLGdCQUFlLEVBQUU7O0FBRW5CO0VBQ0UsZ0JBQWU7RUFDZixvQkFBbUI7RUFDbkIsWUFBVztFQUNYLGFBQVk7RUFDWixlQUFjO0VBQ2QsZ0JBQWU7RUFDZiw4QkFBNkI7RUFDN0IsMEJBQXlCO0VBQ3pCLG9DQUEyQjtLQUEzQixpQ0FBMkI7T0FBM0IsK0JBQTJCO1VBQTNCLDRCQUEyQjtFQUMzQixxREFBb0QsRUFBRTs7QUFFeEQ7RUFDRSxnQkFBZTtFQUNmLGFBQVk7RUFDWixjQUFhO0VBQ2IsbUJBQWtCO0VBQ2xCLGtCQUFpQjtFQUNqQixhQUFZO0VBQ1oscUJBQW9CO0VBQ3BCLHFCQUFvQjtFQUNwQixjQUFhO0VBQ2IsNEJBQTJCO0VBQzNCLGVBQWMsRUFBRTtFQUNoQjtJQUNFLGtCQUFpQixFQUFFOztBQUV2QjtFQUNFLGdCQUFlO0VBQ2Ysb0JBQW1CO0VBQ25CLFlBQVc7RUFDWCxhQUFZO0VBQ1osZUFBYztFQUNkLGdCQUFlO0VBQ2YsOEJBQTZCO0VBQzdCLDBCQUF5QjtFQUN6QixvQ0FBMkI7S0FBM0IsaUNBQTJCO09BQTNCLCtCQUEyQjtVQUEzQiw0QkFBMkI7RUFDM0IseURBQXdELEVBQUU7O0FBRTVEO0VBQ0UsZ0JBQWU7RUFDZixvQkFBbUI7RUFDbkIsWUFBVztFQUNYLGFBQVk7RUFDWixlQUFjO0VBQ2QsZ0JBQWU7RUFDZiw4QkFBNkI7RUFDN0IsMEJBQXlCO0VBQ3pCLG9DQUEyQjtLQUEzQixpQ0FBMkI7T0FBM0IsK0JBQTJCO1VBQTNCLDRCQUEyQjtFQUMzQix3REFBdUQsRUFBRTs7QUFFM0Q7RUFDRSxnQkFBZTtFQUNmLG9CQUFtQjtFQUNuQixZQUFXO0VBQ1gsYUFBWTtFQUNaLGVBQWM7RUFDZCxnQkFBZTtFQUNmLDhCQUE2QjtFQUM3QiwwQkFBeUI7RUFDekIsb0NBQTJCO0tBQTNCLGlDQUEyQjtPQUEzQiwrQkFBMkI7VUFBM0IsNEJBQTJCO0VBQzNCLG1EQUFrRCxFQUFFOztBQUV0RDtFQUNFLGdCQUFlO0VBQ2YsWUFBVztFQUNYLGNBQWE7RUFDYixtQkFBa0I7RUFDbEIsY0FBYTtFQUNiLGFBQVk7RUFDWixtQkFBa0I7RUFDbEIsb0JBQW1CO0VBQ25CLDJCQUEwQjtFQUMxQiw0QkFBbUI7S0FBbkIseUJBQW1CO1VBQW5CLG9CQUFtQixFQUFFIiwiZmlsZSI6ImFjY291bnQvcmVnaXN0ZXIuY3NzIiwic291cmNlUm9vdCI6Ii4uL3Nhc3MvIn0= */

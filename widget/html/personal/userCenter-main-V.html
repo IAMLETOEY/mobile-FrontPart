@@ -1,0 +1,16 @@
+<div class="ui-body">
+    <div>
+        <div class="ui-top">
+            <div class="ui-headText">{{title}}</div>
+        </div>
+        <img id="headPic" src="../../image/tod.png" alt="">
+        <div class="weui-cells">
+            <a class="weui-cell weui-cell_access" href="javascript:;" v-for="item in list" v-touch:tap="onToTap($index)">
+                <div class="weui-cell__hd"><img src="{{item.pic}}" alt="" style="width: .4rem;height: .4rem"></div>
+                <div class="weui-cell__bd" style="margin-left: 0.3rem">
+                    <p>{{item.name}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
