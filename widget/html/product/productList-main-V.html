@@ -1,3 +1,21 @@
+<div class="ui-mainHead">
+    <div class="weui-search-bar" id="searchBar" style="font-size: 16px;">
+        <form class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="输入手机型号" required="">
+                <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+            </div>
+            <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                <i class="weui-icon-search"></i>
+                <span>搜索</span>
+            </label>
+        </form>
+        <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+    </div>
+<div class="ui"></div>
+
+</div>
 <div class="ui-body">
     <div class="ui-product" v-for="item in list" v-touch:tap="onToTap($index)">
         <div class="ui-productPic" style="background-image: url({{item.pic}});"></div>
@@ -8,5 +26,4 @@
         </div>
     </div>
 </div>
-
 
