@@ -3,16 +3,16 @@ define(function(require, exports, module) {
     var UserInfo = _g.getLS('UserInfo');
     var sessionID = _g.getLS('sessionID');
     var type = api.pageParam.type;
-    if(type == 'app'){
-        $('#header').css('display','block');
+    if (type == 'app') {
+        $('#header').css('display', 'block');
         var header = _g.addHeader({
-            template:'../html/common/header-login-V',
-            data:{
-                title:'登录'
+            template: '../html/common/header-login-V',
+            data: {
+                title: '登录'
             }
         });
-    }else{
-        $('#header').css('display','none');
+    } else {
+        $('#header').css('display', 'none');
     }
     var login = new Vue({
         el: '#login',
@@ -25,6 +25,11 @@ define(function(require, exports, module) {
 
         },
         methods: {
+            onHomeTap: function() {
+                api.sendEvent({
+                    name: 'account-login-success'
+                });
+            },
             onLoginTap: function() {
                 var mobileReg = /^1[0-9]{10}$/;
                 var pwdReg = /^[A-Za-z0-9]{6,16}$/;
@@ -83,39 +88,39 @@ define(function(require, exports, module) {
     });
 
     //请求登录
-    function postLogin() {
-        Http.ajax({
-            data: {
-                phone: login.phoneNum,
-                password: login.password,
-            },
-            isSync: true,
-            url: '/app/account/login.do',
-            success: function(ret) {
-                if (ret.code == 200) {
-                    var data = ret.data;
-                    _g.setLS('UserInfo', data.UserInfo);
-                    _g.setLS('sessionID', data.sessionID);
-                    setTimeout(function() {
-                        api.openWin({
-                            name: 'main-index-win',
-                            url: '../main/index.html',
-                            bounces: false,
-                            slidBackEnabled: false,
-                        });
-                    }, 1000);
-                    api.sendEvent({
-                        name: 'account-login-success'
-                    });
-                    login.phoneNum='';
-                    login.password='';
-                } else {
-                    _g.toast(ret.msg);
-                }
-            },
-            error: function(err) {}
-        });
-    }
+    // function postLogin() {
+    //     Http.ajax({
+    //         data: {
+    //             phone: login.phoneNum,
+    //             password: login.password,
+    //         },
+    //         isSync: true,
+    //         url: '/app/account/login.do',
+    //         success: function(ret) {
+    //             if (ret.code == 200) {
+    //                 var data = ret.data;
+    //                 _g.setLS('UserInfo', data.UserInfo);
+    //                 _g.setLS('sessionID', data.sessionID);
+    //                 setTimeout(function() {
+    //                     api.openWin({
+    //                         name: 'main-index-win',
+    //                         url: '../main/index.html',
+    //                         bounces: false,
+    //                         slidBackEnabled: false,
+    //                     });
+    //                 }, 1000);
+    //                 api.sendEvent({
+    //                     name: 'account-login-success'
+    //                 });
+    //                 login.phoneNum = '';
+    //                 login.password = '';
+    //             } else {
+    //                 _g.toast(ret.msg);
+    //             }
+    //         },
+    //         error: function(err) {}
+    //     });
+    // }
 
     module.exports = {};
 
