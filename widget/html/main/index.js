@@ -151,8 +151,8 @@ define(function(require, exports, module) {
             index: 0,
             preload: 0,
             frames: [{
-                name: 'home-home-frame',
-                url: '../home/home.html?mod=dev',
+                name: 'product-productList-frame',
+                url: '../product/productList.html',
                 bounces: true,
                 bgColor: '#ededed',
             }, {
@@ -167,44 +167,20 @@ define(function(require, exports, module) {
                 bgColor: '#ededed',
             }]
         }, function(ret, err) {
-            // var isAllMatch = true;
-            // var isPersonal = true;
-            // if(ret.index == 0){
-            //     isAllMatch = true;
-            //     isPersonal = true;
-            // } else if(ret.index == 1){
-            //     isAllMatch = false;
-            //     isPersonal = true;
-            // } else if(ret.index == 2){
-            //     isAllMatch = true;
-            //     isPersonal = false;
-            // }
-            // api.sendEvent({
-            //     name:'allMatch-hidden',
-            //     extra: {
-            //         isAllMatch: isAllMatch
-            //     }
-            // });
-            // api.sendEvent({
-            //     name:'personal-hidden',
-            //     extra: {
-            //         isPersonal: isPersonal
-            //     }
-            // });
             footer.active = ret.index;
         });
     }
 
     setTimeout(function() {
-        openFrameGroup()
-    }, 0);
+        openFrameGroup(0)
+    }, 200);
 
 
-    api && api.addEventListener({
-        name: 'account-login-success'
-    }, function(ret, err) {
-        setFrameGroupIndex(0)
-    });
+    // api && api.addEventListener({
+    //     name: 'account-login-success'
+    // }, function(ret, err) {
+    //     setFrameGroupIndex(0)
+    // });
     module.exports = {};
 
 });
