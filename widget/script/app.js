@@ -97,18 +97,18 @@ define(function(require, exports, module) {
         });
     }
 
-     function openLoginPage() {
-        api && api.openWin({
-            name: 'main-index-win',
-            url: './html/account/login.html?mod=dev',
-            pageParam:{
-                type:'app'
-            },
-            bounces: true,
-            slidBackEnabled: false,
-            animation: { type: 'none' }
-        });
-    }
+    //  function openLoginPage() {
+    //     api && api.openWin({
+    //         name: 'main-index-win',
+    //         url: './html/account/login.html?mod=dev',
+    //         pageParam:{
+    //             type:'app'
+    //         },
+    //         bounces: true,
+    //         slidBackEnabled: false,
+    //         animation: { type: 'none' }
+    //     });
+    // }
 
     if( _g.getLS('UserInfo')){
         openMainPage();
