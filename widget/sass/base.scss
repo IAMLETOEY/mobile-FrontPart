@@ -242,3 +242,7 @@ body {
         color: #fff;
     }
 }
+[class*=" weui-icon-"]:before,
+[class^=weui-icon-]:before {
+    font-family: weui;
+}

@@ -28,6 +28,43 @@ define(function(require, exports, module) {
 
         },
         methods: {
+          onToTap:function (index) {
+            var head = userCenter.list[index].name;
+                var name = '';
+                var url = '';
+                var template = '';
+                if (index == 0) {
+                    name = 'personal-myBuy';
+                    url = './myBuy.html';
+                } 
+                else if (index == 1) {
+                    // name = 'personal-myLocation';
+                    // url = '../personal/myLocation.html';
+                    template = 'common/header-save-V';
+                } else if (index == 2) {
+                    name = 'personal-myPost';
+                    url = './myPost.html';
+                }
+                else if (index == 3) {
+                    // name = 'personal-joinIn';
+                    // url = '../personal/joinIn.html';
+                } else if (index == 4) {
+                    name = 'personal-setInfo';
+                    url = './setInfo.html';
+                }
+                _g.openWin({
+                    header: {
+                        data: {
+                            title: head,
+                        },
+                        // template: template,
+                    },
+                    name: name,
+                    url: url,
+                    // bounces: false,//页面弹动
+                    slidBackEnabled: false,
+                });
+          }
         },
     });
 

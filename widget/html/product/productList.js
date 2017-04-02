@@ -32,7 +32,9 @@ define(function(require, exports, module) {
         created: function() {
 
         },
-        methods: {},
+        methods: {
+            
+        },
     });
 
     //微信搜索框

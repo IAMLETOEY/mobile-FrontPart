@@ -17,38 +17,7 @@ define(function(require, exports, module) {
             });
         },
         methods: {
-            //获取验证码
-            //  onInit:function(nowText){
-            //     this.codeText=nowText;
-            // },
-            // onAction:function(nowText){
-            //     this.codeText=nowText;
-            // },
-            // onGetCodeTap:function(){
-            //      if (Vcode.isAllow()) {
-            //         Vcode.start();
-            //         this.vcode=Vcode.getRandom(6);
-            //         Http.ajax({
-            //             data:{
-            //                telephone:regist.phoneNum
-            //             },
-            //             lock:false,
-            //             url:'',
-            //             success: function(ret) {
-            //             if (ret.code == 200) {
-            //                 _g.toast(ret.msg);
-            //             } else {
-            //                 _g.toast(ret.msg);
-            //             }
-            //         },
-            //         error:function(err){},
-
-            //         });
-            //     }else{
-            //         _g.toast('请在倒计时结束再点击获取新的验证码!');
-            //     }
-            // },
-
+            
             //申请注册
             onLoginTap: function() {
                 var mobileReg = /^1[0-9]{10}$/;

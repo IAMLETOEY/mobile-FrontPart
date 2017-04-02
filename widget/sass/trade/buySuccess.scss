@@ -4,7 +4,10 @@ body {
     width: 100%;
     height: 100%;
 }
-
+[class*=" weui-icon_"]:before,
+[class^=weui-icon_]:before {
+    font-family: weui;
+}
 .ui-body {
     display: block;
     width: 100%;

@@ -51,7 +51,7 @@ define(function(require, exports, module) {
                         data: {
                             title: '设置',
                         },
-                        template: '',
+                        
                     },
                     name: 'personal-setUp',
                     url: '../personal/setUp.html',
@@ -61,6 +61,7 @@ define(function(require, exports, module) {
 
                     }
                 });
+                
             }
         }
     });

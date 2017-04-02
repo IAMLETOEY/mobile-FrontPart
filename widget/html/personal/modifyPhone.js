@@ -12,7 +12,20 @@ define(function(require, exports, module) {
         created: function() {
 
         },
-        methods: {},
+        methods: {
+            onSubmit:function () {
+                _g.openWin({
+                    header: {
+                        data: {
+                            title: '',
+                        },
+                    },
+                    name: 'personal-myPost',
+                    url: './myPost.html',
+                    slidBackEnabled: false,
+                });
+            }
+        },
     });
 
     var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',

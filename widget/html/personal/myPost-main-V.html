@@ -21,8 +21,8 @@
             </div>
         </div>
         <div class="weui-form-preview__ft">
-            <a class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">修改手机信息</a>
-            <button type="submit" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">查看订单状态</button>
+            <a class="weui-form-preview__btn weui-form-preview__btn_default" v-touch:tap="onModifyPhone" href="javascript:">修改手机信息</a>
+            <button type="submit"  v-touch:tap="onOrderList" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">查看订单状态</button>
         </div>
     </form>
 </div>
