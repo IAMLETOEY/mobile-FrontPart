@@ -16,10 +16,25 @@
 </div>
 <div class="ui-mainPic">
    <!-- TODO:加一个轮播图 -->
-
+    <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+    
+    <!-- 如果需要导航按钮 -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
+    
+    <!-- 如果需要滚动条 -->
+    <!-- <div class="swiper-scrollbar"></div> -->
+</div>
 </div>
 <div class="ui-body">
-    <div class="ui-product" v-for="item in list" v-touch:tap="onToTap($index)">
+    <div class="ui-product" v-for="(item,pindex) in list" v-touch:tap="onDetailTap(pindex)">
         <div class="ui-productPic" style="background-image: url({{item.pic}});"></div>
         <div class="ui-productText">
             <p>{{item.text}}</p>

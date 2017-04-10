@@ -13,6 +13,7 @@ define(function(require, exports, module) {
            },{
             pic:'../../image/account/money.png',
             name: '我的钱包',
+            account:"111"
            },{
             pic:'../../image/account/phone.png',
             name: '我的发布',

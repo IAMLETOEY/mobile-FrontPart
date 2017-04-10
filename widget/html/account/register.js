@@ -23,35 +23,21 @@ define(function(require, exports, module) {
                 var mobileReg = /^1[0-9]{10}$/;
                 var pwdReg = /^[A-Za-z0-9]{6,16}$/;
                 var codeReg = /^[0-9]{6}$/;
-                if (this.phoneNum == '') {
-                    _g.toast('请输入手机号码');
-                    return;
-                }
-                if (!mobileReg.test(this.phoneNum)) {
-                    _g.toast('请输入11位数的手机号码');
-                    return;
-                }
-                if (this.password == '') {
-                    _g.toast('请输入密码');
-                    return;
-                }
-                if (!pwdReg.test(this.password)) {
-                    _g.toast('请输入6~16位数字/字母或组合的密码');
-                    return;
-                }
-                if (this.codeQR == '') {
-                    _g.toast('请输入验证码');
-                    return;
-                }
-                if (!codeReg.test(this.codeQR)) {
-                    _g.toast('请输入6位正确的验证码');
-                    return;
-                }
-                postRegist();
-            },
-            onDelTap: function() {
-                this.phoneNum = '';
-            },
+                // if (this.phoneNum == '1') {
+                //     _g.toast('请输入手机号码');
+                //     return;
+                // }
+                // if (!mobileReg.test(this.phoneNum)) {
+                //     _g.toast('请输入11位数的手机号码');
+                //     return;
+                // }
+                // if (this.password == '') {
+                //     _g.toast('请输入密码');
+                //     return;
+                // }
+                // postRegist();
+                
+            }
         },
     });
     //请求注册

@@ -2,7 +2,7 @@ define(function(require, exports, module) {
     var Http = require('U/http');
     var headerHeight = 0;
     var footerHeight = 0;
-    var windowHeight = window.innerHeight;
+    // var windowHeight = window.innerHeight;
     // var messageRead = setInterval(getMessageRead, 300000);
     var UserInfo = _g.getLS('UserInfo');
     var pageIndex = 1;
@@ -21,48 +21,11 @@ define(function(require, exports, module) {
             list: [
                 '足球推荐',
                 '全部赛事',
-                '个人中心',
+                '个人中心'
             ],
         },
         methods: {
-            onTapRightSelect: function() {
-                _g.openWin({
-                    header: {
-                        data: {
-                            title: '赛事筛选',
-                        },
-                        template: '',
-                    },
-                    name: 'match-eventFifter',
-                    url: '../match/eventFifter.html',
-                    bounces: false,
-                    slidBackEnabled: false,
-                    pageParam: {
-
-                    }
-                });
-            },
-            onTapRightSearch: function() {
-
-            },
-            onTapRightSetUp: function() {
-                _g.openWin({
-                    header: {
-                        data: {
-                            title: '设置',
-                        },
-                        
-                    },
-                    name: 'personal-setUp',
-                    url: '../personal/setUp.html',
-                    bounces: false,
-                    slidBackEnabled: false,
-                    pageParam: {
-
-                    }
-                });
-                
-            }
+           
         }
     });
     // var header = new Vue({
@@ -92,36 +55,36 @@ define(function(require, exports, module) {
                 tag: 'personal'
             }]
         },
-        methods: {
-            onItemTap: function(index) {
-                if (this.active == index) return;
-                if (index == 0) {
-                    header.isHome = true;
-                    header.isAllMatch = false;
-                    header.isPersonal = false;
-                    api.sendEvent({
-                        name: 'home-home-refresh'
-                    })
-                } else if (index == 1) {
-                    header.isHome = false;
-                    header.isAllMatch = true;
-                    header.isPersonal = false;
-                    api.sendEvent({
-                        name: 'home-allMatch-refresh'
-                    })
+        // methods: {
+        //     onItemTap: function(index) {
+        //         if (this.active == index) return;
+        //         if (index == 0) {
+        //             header.isHome = true;
+        //             header.isAllMatch = false;
+        //             header.isPersonal = false;
+        //             api.sendEvent({
+        //                 name: 'home-home-refresh'
+        //             })
+        //         } else if (index == 1) {
+        //             header.isHome = false;
+        //             header.isAllMatch = true;
+        //             header.isPersonal = false;
+        //             api.sendEvent({
+        //                 name: 'home-allMatch-refresh'
+        //             })
 
-                } else if (index == 2) {
-                    header.isHome = false;
-                    header.isAllMatch = false;
-                    header.isPersonal = true;
-                    api.sendEvent({
-                        name: 'home-personal-refresh'
-                    })
-                } else
-                    header.title = this.list[index].title;
-                setFrameGroupIndex(index);
-            },
-        }
+        //         } else if (index == 2) {
+        //             header.isHome = false;
+        //             header.isAllMatch = false;
+        //             header.isPersonal = true;
+        //             api.sendEvent({
+        //                 name: 'home-personal-refresh'
+        //             })
+        //         } else
+        //             header.title = this.list[index].title;
+        //         setFrameGroupIndex(index);
+        //     },
+        // }
     });
 
     function setFrameGroupIndex(index) {
@@ -175,13 +138,23 @@ define(function(require, exports, module) {
     setTimeout(function() {
         openFrameGroup(0)
     }, 200);
+    api && api.addEventListener({
+        name: 'main-index-login'
+    }, function(ret, err) {
+        setFrameGroupIndex(0)
+    });
 
 
-    // api && api.addEventListener({
-    //     name: 'account-login-success'
-    // }, function(ret, err) {
-    //     setFrameGroupIndex(0)
-    // });
+    api && api.addEventListener({
+        name: 'account-login-success'
+    }, function(ret, err) {
+        setFrameGroupIndex(0)
+    });
+    api && api.addEventListener({
+        name: 'keyback'
+    }, function(ret, err) {
+        api.closeWidget();
+    });
     module.exports = {};
 
 });

@@ -1,0 +1,41 @@
+@import "../_config";
+html,
+body {
+    width: 100%;
+    // height: 100%;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    height: 100%;
+    @include bgi-cover(url(../../image/placeholder.png));
+}
+
+.swiper-TitleBackground {
+    display: block;
+    width: 100%;
+    height: .64rem;
+    font-size: .32rem;
+    background-color: black;
+    opacity: .5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.swiper-title {
+    display: block;
+    width: 6rem;
+    height: .42rem;
+    line-height: .45rem;
+    font-size: .32rem;
+    position: absolute;
+    left: .15rem;
+    bottom: .1rem;
+    color: white;
+    text-align: left;
+}

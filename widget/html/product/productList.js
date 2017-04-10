@@ -8,6 +8,7 @@ define(function(require, exports, module) {
         data: {
             title: '订单列表',
             list: [{
+                id: 1,
                 pic: '../../image/httpmiao/401.jpg',
                 text: '小米note 32G 全网通',
                 imputedPrice: '899',
@@ -33,7 +34,23 @@ define(function(require, exports, module) {
 
         },
         methods: {
-            
+            onDetailTap: function(index) {
+                _g.openWin({
+                    // header:{
+                    //     data:{
+                    //         title:'产品详情',
+                    //         rightText:'删除/保存'
+                    //     }
+                    // },
+                    name: 'product-productDetail',
+                    url: '../product/productDetail.html',
+                    bounces: true,
+                    slidBackEnabled: false,
+                    pageParam: {
+                        productID: this.list[index].id
+                    }
+                })
+            }
         },
     });
 
@@ -80,7 +97,19 @@ define(function(require, exports, module) {
         $searchInput.blur();
     });
 
+    var mySwiper = new Swiper('.swiper-container', {
+        // direction: 'horizontal',
+        loop: true,
+        autoplay: 2000,
+        // 如果需要分页器
+        pagination: '.swiper-pagination',
 
+        // 如果需要前进后退按钮
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+
+        
+    })
     module.exports = {};
 
 });

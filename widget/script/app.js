@@ -90,32 +90,28 @@ define(function(require, exports, module) {
     function openMainPage() {
         api && api.openWin({
             name: 'main-index-win',
-            url: './html/main/index.html?mod=dev',
+            url: './html/main/index.html',
             bounces: false,
             slidBackEnabled: false,
             animation: { type: 'none' }
         });
     }
 
-    //  function openLoginPage() {
-    //     api && api.openWin({
-    //         name: 'main-index-win',
-    //         url: './html/account/login.html?mod=dev',
-    //         pageParam:{
-    //             type:'app'
-    //         },
-    //         bounces: true,
-    //         slidBackEnabled: false,
-    //         animation: { type: 'none' }
-    //     });
-    // }
+    function openLoginPage() {
+        api && api.openWin({
+            name: 'account-login-win',
+            url: './html/account/login.html',
+            bounces: false,
+            slidBackEnabled: false,
+            animation: { type: 'none' }
+        });
+    }
 
-    if( _g.getLS('UserInfo')){
+    if(_g.getLS('UserInfo')){
         openMainPage();
     }else{
         openLoginPage();
     }
-    
 
     api.addEventListener({
         name: 'shake'

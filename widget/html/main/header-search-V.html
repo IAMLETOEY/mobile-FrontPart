@@ -1,0 +1,20 @@
+<div id="header" class="ui-header is-base">
+    <div class="ui-header__leftBtn" v-touch:tap="onTapLeftRemind">
+    	<span class="ui-header__leftBtnRemind">
+    		<p>1</p>
+    	</span>
+    </div>
+    <div v-touch:tap="onTitleTap" class="ui-header__title">{{title}}</div>
+    <div class="ui-header__rightBtn" v-touch:tap="onTapRightSearch" v-show="isHome">
+    	<span class="ui-list__search">
+    	</span>
+    </div>
+    <div class="ui-header__rightBtn" v-touch:tap="onTapRightSelect" v-show="isAllMatch">
+        <span class="ui-list__selected">
+        </span>
+    </div>
+    <div class="ui-header__rightBtn" v-touch:tap="onTapRightSetUp" v-show="isPersonal">
+        <span class="ui-list__setUp">
+        </span>
+    </div>
+</div>
