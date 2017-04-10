@@ -113,17 +113,17 @@ define(function(require, exports, module) {
         openLoginPage();
     }
 
-    api.addEventListener({
-        name: 'shake'
-    }, function(ret, err) {
-        if (window.APPMODE == 'pub') return;
-        api.alert({
-            title: '当前代码版本为:',
-            msg: window.VERSION,
-        }, function(ret, err) {
+    // api.addEventListener({
+    //     name: 'shake'
+    // }, function(ret, err) {
+    //     if (window.APPMODE == 'pub') return;
+    //     api.alert({
+    //         title: '当前代码版本为:',
+    //         msg: window.VERSION,
+    //     }, function(ret, err) {
 
-        });
-    });
+    //     });
+    // });
 
     module.exports = {};
 

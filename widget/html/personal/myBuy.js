@@ -12,7 +12,20 @@ define(function(require, exports, module) {
         created: function() {
 
         },
-        methods: {},
+        methods: {
+            onOrderListTap: function() {
+                _g.openWin({
+                    header: {
+                        data: {
+                            title: '订单列表',
+                        },
+                    },
+                    name: 'personal-orderList',
+                    url: '../personal/orderList.html',
+                    slidBackEnabled: false,
+                });
+            }
+        },
     });
 
     module.exports = {};

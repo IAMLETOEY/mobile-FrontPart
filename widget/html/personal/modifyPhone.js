@@ -13,7 +13,7 @@ define(function(require, exports, module) {
 
         },
         methods: {
-            onSubmit:function () {
+            onSubmitModify:function () {
                 _g.openWin({
                     header: {
                         data: {
@@ -21,7 +21,7 @@ define(function(require, exports, module) {
                         },
                     },
                     name: 'personal-myPost',
-                    url: './myPost.html',
+                    url: '../personal/myPost.html',
                     slidBackEnabled: false,
                 });
             }

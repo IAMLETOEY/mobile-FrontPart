@@ -2,7 +2,7 @@ define(function(require, exports, module) {
     var Http = require('U/http');
     var headerHeight = 0;
     var footerHeight = 0;
-    // var windowHeight = window.innerHeight;
+    var windowHeight = window.innerHeight;
     // var messageRead = setInterval(getMessageRead, 300000);
     var UserInfo = _g.getLS('UserInfo');
     var pageIndex = 1;
@@ -16,11 +16,11 @@ define(function(require, exports, module) {
             isAllMatch: false,
             isPersonal: false,
             active: 0,
-            title: '足球推荐',
+            title: '手机回收',
             isHome: 1,
             list: [
-                '足球推荐',
-                '全部赛事',
+                '首页',
+                '估价发布',
                 '个人中心'
             ],
         },
@@ -28,16 +28,6 @@ define(function(require, exports, module) {
            
         }
     });
-    // var header = new Vue({
-    //     el: '#header',
-    //     template: _g.getTemplate('main/header-search-V'),
-    //     data: {
-    //         title: '足球推荐',
-    //     },
-    //     methods: {
-
-    //     }
-    // });
     var footer = new Vue({
         el: '#footer',
         template: _g.getTemplate('main/footer-V'),
@@ -48,43 +38,43 @@ define(function(require, exports, module) {
                 title: '首页',
                 tag: 'home',
             }, {
-                title: '全部赛事',
-                tag: 'allMatch'
+                title: '估价发布',
+                tag: 'impute'
             }, {
                 title: '个人中心',
                 tag: 'personal'
             }]
         },
-        // methods: {
-        //     onItemTap: function(index) {
-        //         if (this.active == index) return;
-        //         if (index == 0) {
-        //             header.isHome = true;
-        //             header.isAllMatch = false;
-        //             header.isPersonal = false;
-        //             api.sendEvent({
-        //                 name: 'home-home-refresh'
-        //             })
-        //         } else if (index == 1) {
-        //             header.isHome = false;
-        //             header.isAllMatch = true;
-        //             header.isPersonal = false;
-        //             api.sendEvent({
-        //                 name: 'home-allMatch-refresh'
-        //             })
+        methods: {
+            onItemTap: function(index) {
+                if (this.active == index) return;
+                if(index == 0) {
+                    header.isHome = true;
+                    header.isImpute = false;
+                    header.isPersonal = false;
+                    api.sendEvent({
+                        name:'home-home-refresh'
+                    })
+                } else if(index == 1) {
+                    header.isHome = false;
+                    header.isImpute = true;
+                    header.isPersonal = false;
+                    api.sendEvent({
+                        name:'home-impute-refresh'
+                    })
 
-        //         } else if (index == 2) {
-        //             header.isHome = false;
-        //             header.isAllMatch = false;
-        //             header.isPersonal = true;
-        //             api.sendEvent({
-        //                 name: 'home-personal-refresh'
-        //             })
-        //         } else
-        //             header.title = this.list[index].title;
-        //         setFrameGroupIndex(index);
-        //     },
-        // }
+                } else if(index == 2) {
+                    header.isHome = false;
+                    header.isImpute = false;
+                    header.isPersonal = true;
+                    api.sendEvent({
+                        name:'home-personal-refresh'
+                    })
+                } else 
+                header.title = this.list[index].title;
+                setFrameGroupIndex(index);
+            }
+        }
     });
 
     function setFrameGroupIndex(index) {
@@ -117,17 +107,17 @@ define(function(require, exports, module) {
             frames: [{
                 name: 'product-productList-frame',
                 url: '../product/productList.html',
-                bounces: true,
+                bounces: false,
                 bgColor: '#ededed',
             }, {
-                name: 'home-allMatch-frame',
-                url: '../home/allMatch.html?mod=dev',
-                bounces: true,
+                name: 'home-impute-frame',
+                url: '../trade/addPhone.html',
+                bounces: false,
                 bgColor: '#ededed',
             }, {
                 name: 'home-personal-frame',
-                url: '../home/personal.html',
-                bounces: true,
+                url: '../personal/userCenter.html',
+                bounces: false,
                 bgColor: '#ededed',
             }]
         }, function(ret, err) {

@@ -11,7 +11,32 @@ define(function(require, exports, module) {
         created: function() {
 
         },
-        methods: {},
+        methods: {
+            onPostPhone: function() {
+                _g.openWin({
+                    header: {
+                        data: {
+                            title: '我的发布',
+                        },
+                    },
+                    name: 'personal-myPost',
+                    url: '../personal/myPost.html',
+                    slidBackEnabled: false,
+                });
+            },
+            onBack: function() {
+                _g.openWin({
+                    header: {
+                        data: {
+                            title: '二手手机',
+                        },
+                    },
+                    name: 'main-index',
+                    url: '../main/index.html',
+                    slidBackEnabled: false,
+                });
+            }
+        },
     });
 
     module.exports = {};

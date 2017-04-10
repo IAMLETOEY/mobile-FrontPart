@@ -6,30 +6,31 @@ define(function(require, exports, module) {
         el: '#setInfo',
         template: _g.getTemplate('personal/setInfo-main-V'),
         data: {
-           title:'用户设置',
-           list:[]
+            title: '用户设置',
+            list: []
         },
         created: function() {
 
         },
         methods: {
-            onCancel:function () {
-                _g.openWin({
-                    header: {
-                        data: {
-                            title: '',
-                        },
-                    },
-                    name: 'personal-userCenter',
-                    url: './userCenter.html',
-                    slidBackEnabled: false,
-                });
+            onCancel: function() {
+                // _g.openWin({
+                //     header: {
+                //         data: {
+                //             title: '',
+                //         },
+                //     },
+                //     name: 'personal-userCenter',
+                //     url: '../personal/userCenter.html',
+                //     slidBackEnabled: false,
+                // });
+                api.closeWin();
 
             }
         },
     });
 
 
-     module.exports = {};
+    module.exports = {};
 
 });

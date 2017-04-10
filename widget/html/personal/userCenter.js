@@ -36,7 +36,7 @@ define(function(require, exports, module) {
                 var template = '';
                 if (index == 0) {
                     name = 'personal-myBuy';
-                    url = './myBuy.html';
+                    url = '../personal/myBuy.html';
                 } 
                 else if (index == 1) {
                     // name = 'personal-myLocation';
@@ -44,14 +44,14 @@ define(function(require, exports, module) {
                     template = 'common/header-save-V';
                 } else if (index == 2) {
                     name = 'personal-myPost';
-                    url = './myPost.html';
+                    url = '../personal/myPost.html';
                 }
                 else if (index == 3) {
                     // name = 'personal-joinIn';
                     // url = '../personal/joinIn.html';
                 } else if (index == 4) {
                     name = 'personal-setInfo';
-                    url = './setInfo.html';
+                    url = '../personal/setInfo.html';
                 }
                 _g.openWin({
                     header: {

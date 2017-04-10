@@ -1,40 +1,16 @@
-<div class="ui-mainHead">
-    <div class="weui-search-bar" id="searchBar" style="font-size: 16px;">
-        <form class="weui-search-bar__form">
-            <div class="weui-search-bar__box">
-                <i class="weui-icon-search"></i>
-                <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="输入手机型号" required="">
-                <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
-            </div>
-            <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
-                <i class="weui-icon-search"></i>
-                <span>搜索</span>
-            </label>
-        </form>
-        <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
-    </div>
-</div>
 <div class="ui-mainPic">
-   <!-- TODO:加一个轮播图 -->
     <div class="swiper-container">
     <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide" style="background-image:url({{item.pic}})" v-for="item in rowList">
+                    <div class="swiper-TitleBackground"></div>
+                    <div class="swiper-title">{{item.title}}</div>
+                </div>
     </div>
-    <!-- 如果需要分页器 -->
     <div class="swiper-pagination"></div>
-    
-    <!-- 如果需要导航按钮 -->
-    <!-- <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div> -->
-    
-    <!-- 如果需要滚动条 -->
-    <!-- <div class="swiper-scrollbar"></div> -->
 </div>
 </div>
 <div class="ui-body">
-    <div class="ui-product" v-for="(item,pindex) in list" v-touch:tap="onDetailTap(pindex)">
+    <div class="ui-product" v-for="item in list" v-touch:tap="onDetailTap($index)">
         <div class="ui-productPic" style="background-image: url({{item.pic}});"></div>
         <div class="ui-productText">
             <p>{{item.text}}</p>

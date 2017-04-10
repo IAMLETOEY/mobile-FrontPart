@@ -28,6 +28,16 @@ define(function(require, exports, module) {
                 text: '小米note 32G 全网通',
                 imputedPrice: '899',
                 sellerPrice: '799'
+            }],
+            rowList: [{
+                pic: '../../image/swiper1.jpg',
+                title: '测试测试'
+            }, {
+                pic: '../../image/swiper2.jpg',
+                title: '测试测试'
+            }, {
+                pic: '../../image/swiper3.jpg',
+                title: '测试测试'
             }]
         },
         created: function() {
@@ -36,20 +46,18 @@ define(function(require, exports, module) {
         methods: {
             onDetailTap: function(index) {
                 _g.openWin({
-                    // header:{
-                    //     data:{
-                    //         title:'产品详情',
-                    //         rightText:'删除/保存'
-                    //     }
-                    // },
+                    header: {
+                        data: {
+                            title: '商品详情',
+                        },
+
+                        // template: template,
+                    },
                     name: 'product-productDetail',
                     url: '../product/productDetail.html',
-                    bounces: true,
+                    // bounces: false,
                     slidBackEnabled: false,
-                    pageParam: {
-                        productID: this.list[index].id
-                    }
-                })
+                });
             }
         },
     });
@@ -108,7 +116,7 @@ define(function(require, exports, module) {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
 
-        
+
     })
     module.exports = {};
 

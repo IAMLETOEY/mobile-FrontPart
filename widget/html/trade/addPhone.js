@@ -12,7 +12,20 @@ define(function(require, exports, module) {
         created: function() {
 
         },
-        methods: {},
+        methods: {
+            onCheckPhone: function() {
+                _g.openWin({
+                    header: {
+                        data: {
+                            title: '估算价格',
+                        },
+                    },
+                    name: 'trade-getPrice',
+                    url: '../trade/getPrice.html',
+                    slidBackEnabled: false,
+                });
+            }
+        },
     });
 
     var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',

@@ -29,11 +29,23 @@ define(function(require, exports, module) {
                 _g.openWin({
                     header: {
                         data: {
-                            title: '',
+                            title: '修改手机',
                         },
                     },
                     name: 'personal-modifyPhone',
-                    url: './modifyPhone.html',
+                    url: '../personal/modifyPhone.html',
+                    slidBackEnabled: false,
+                });
+            },
+            onOrderList:function () {
+                _g.openWin({
+                    header: {
+                        data: {
+                            title: '订单列表',
+                        },
+                    },
+                    name: 'personal-orderList',
+                    url: '../personal/orderList.html',
                     slidBackEnabled: false,
                 });
             }
