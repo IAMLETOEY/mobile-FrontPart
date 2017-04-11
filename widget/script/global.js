@@ -8,7 +8,7 @@ window.CONFIG = {}; // 全局配置
 CONFIG.DEFAULT_AVATAR = '../../image/placeholder.png'; // 默认头像
 CONFIG.DEFAULT_PHOTO = '../../image/placeholder.png'; // 默认图片
 APPMODE == 'dev' && (function() {
-    CONFIG.HOST = 'http://';
+    CONFIG.HOST = 'http://192.168.199.111:8011';
     var isApp = !!window.localStorage.getItem('isApp');
     if (window.APPMODE == 'dev' && !isApp) {
         // 如果是开发模式并且不是app启动
@@ -16,7 +16,7 @@ APPMODE == 'dev' && (function() {
     }
 })();
 APPMODE == 'pub' && (function() {
-    CONFIG.HOST = 'http://';
+    CONFIG.HOST = 'http://192.168.199.111:8011';
 })();
 
 apiready = function() {

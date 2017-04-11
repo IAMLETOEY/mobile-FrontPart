@@ -14,17 +14,25 @@ define(function(require, exports, module) {
             sellerPrice: '799',
             list:[{
                 id:'',
-            }]
+            }],
+            tipShow:false
         },
         created: function() {
 
         },
         methods: {
+            onCommentTap:function () {
+                if (this.tipShow) {
+                    this.tipShow=false;
+                }else{
+                    this.tipShow=true;
+                }
+            },
             onBuyTap: function() {
                 _g.openWin({
                     header: {
                         data: {
-                            title: '',
+                            title: '添加订单',
                         },
                     },
                     name: 'trade-addOrder',

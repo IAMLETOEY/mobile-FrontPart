@@ -48,3 +48,18 @@
 <div class="ui-purchanse">
     <div v-touch:tap="onBuyTap" class="weui-btn weui-btn_primary">立即购买</div>
 </div>
+<div class="ui-shadow" v-show="tipShow" v-touch:tap="onCommentTap"></div>
+<div class="ui-tip" v-show="tipShow">
+    <div class="weui-cells__title">评论</div>
+    <div class="weui-cell" style="font-size: .3rem">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入文本" rows="4"></textarea>
+        </div>
+    </div>
+    <div class="ui-onSure">
+    <div class="weui-btn weui-btn weui-btn_primary">确定</div>
+    </div>
+    <div class="ui-onCancel">
+        <div v-touch:tap="onCommentTap" class="weui-btn weui-btn_default">取消</div>
+    </div>
+</div>

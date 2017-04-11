@@ -1,13 +1,13 @@
 <div class="ui-body">
     <img id="headPic" src="../../image/tod.png" alt="">
     <div class="ui-main">
-        <div class="weui-cells weui-cells_form">
+        <div class="weui-cells">
             <div class="weui-cell">
                 <div class="weui-cell__hd">
                     <label class="weui-label">昵称</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入昵称">
+                    <input class="weui-input" type="text" v-model="UserInfo.nickName">
                 </div>
             </div>
             <div class="weui-cell">
@@ -15,30 +15,15 @@
                     <label class="weui-label">身份证</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入身份证号">
+                    <input class="weui-input" type="number" pattern="[0-9]*" v-model="UserInfo.idCard">
                 </div>
             </div>
-            <div class="weui-cell weui-cell_select weui-cell_select-after">
+             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <label for="" class="weui-label">性别</label>
+                    <label class="weui-label">收货地址</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <select class="weui-select" name="select2">
-                        <option value="1">男</option>
-                        <option value="2">女</option>
-                    </select>
-                </div>
-            </div>
-             <div class="weui-cell weui-cell_select weui-cell_select-after">
-                <div class="weui-cell__hd">
-                    <label for="" class="weui-label">收货地址</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <select class="weui-select" name="select2">
-                        <option value="1">中国</option>
-                        <option value="2">美国</option>
-                        <option value="3">英国</option>
-                    </select>
+                    <input class="weui-input" type="text" v-model="UserInfo.address">
                 </div>
             </div>
         </div>
@@ -47,18 +32,18 @@
                 <div class="weui-cell__bd">
                     <p>用户类型</p>
                 </div>
-                <div class="weui-cell__ft">普通用户</div>
+                <div class="weui-cell__ft">{{UserInfo.type==1?'普通用户':'评测机构'}}</div>
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__bd">
                     <p>登录名</p>
                 </div>
-                <div class="weui-cell__ft">15555552120</div>
+                <div class="weui-cell__ft">{{UserInfo.account}}</div>
             </div>
             <div class="weui-cell">
                 
             </div>
-            <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips" style="">确定</a>
-            <a href="javascript:;" v-touch:tap="onCancel" class="weui-btn weui-btn_warn">取消</a>
+            <a v-touch:tap="onSure" class="weui-btn weui-btn_primary">确定</a>
+            <a v-touch:tap="onCancel" class="weui-btn weui-btn_warn">取消</a>
         </div>
     </div>

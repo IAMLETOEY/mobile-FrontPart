@@ -55,7 +55,7 @@ define(function(require, exports, module) {
                     },
                     name: 'product-productDetail',
                     url: '../product/productDetail.html',
-                    // bounces: false,
+                    bounces: false,
                     slidBackEnabled: false,
                 });
             }

@@ -1,6 +1,6 @@
 <div class="ui-body">
     <div class="ui-price">
-        <div class="ui-priceText">￥7999
+        <div class="ui-priceText">￥{{price}}
             <span class="ui-reset">
                 <a href="../trade/addPhone.html" ><img src="../../image/refresh.png" alt=""></a>
             </span>
@@ -12,7 +12,7 @@
                 <label class="weui-label">发布售价</label>
             </div>
             <div class="weui-cell__bd">
-                <input class="weui-input" type="number" placeholder="请输入您心理价格">
+                <input class="weui-input" type="number" placeholder="请输入您心理价格" v-model="sellerPrice">
             </div>
             <div class="weui-cell__ft">
                 <button class="weui-vcode-btn">申请认证</button>
@@ -35,6 +35,6 @@
     </div>
     <div class="ui-sure">
         <div v-touch:tap="onPostPhone" class="weui-btn weui-btn_primary">发布手机</div>
-        <div v-touch:tap="onBack" class="weui-btn weui-btn_default">返回首页</div>
+        <div v-touch:tap="onBack" class="weui-btn weui-btn_default">返回</div>
     </div>
 </div>

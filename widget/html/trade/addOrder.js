@@ -12,6 +12,20 @@ define(function(require, exports, module) {
 
         },
         methods: {
+            onPayTap: function() {
+                alert('支付成功！');
+                _g.openWin({
+                    header: {
+                        data: {
+                            title: '我的购买',
+                        },
+                    },
+                    name: 'personal-myBuy',
+                    url: '../personal/myBuy.html',
+                    slidBackEnabled: false,
+                });
+
+            }
         },
     });
 

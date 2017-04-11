@@ -52,3 +52,49 @@ body {
 .ui-phoneDetail {
 	color: black;
 }
+
+.ui-shadow {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 199;
+    width: 100%;
+    height: 100%;
+    background-color: #4C4C4C;
+    opacity: 0.9;
+}
+
+.ui-tip {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 299;
+    margin-top: 40%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    padding: 0.44rem 0.22rem;
+    width: 95%;
+    height: 4.78rem;
+    background-color: #fff;
+    border-radius: 0.4rem;
+}
+
+.ui-onSure {
+	display: block;
+	width: 40%;
+	position: fixed;
+	margin: auto;
+	bottom: 2%;
+	left: 5%;
+	// float: left
+}
+.ui-onCancel {
+	display: block;
+	width: 40%;
+	position: fixed;
+	margin: auto;
+	bottom: 2%;
+	right: 5%;
+}

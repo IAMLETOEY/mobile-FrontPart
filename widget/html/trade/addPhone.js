@@ -2,61 +2,76 @@ define(function(require, exports, module) {
     var Http = require('U/http');
     var UserInfo = _g.getLS('UserInfo');
     var sessionID = _g.getLS('sessionID');
-    var UserInfo = new Vue({
+    var PhoneInfo = new Vue({
         el: '#addPhone',
         template: _g.getTemplate('trade/addPhone-main-V'),
         data: {
-            title: '订单列表',
-            text: '小米note 32G 全网通',
+            model: '苹果',
+            modelName: '',
+            net: '',
+            internal: '',
+            RAM: '',
+            color: '',
+            buyChannel: '',
+            warranty: false,
+            border: '',
+            screen: '',
+            maintenance: '',
+            other: ''
         },
         created: function() {
 
         },
         methods: {
             onCheckPhone: function() {
-                _g.openWin({
-                    header: {
-                        data: {
-                            title: '估算价格',
-                        },
+                if (! (this.modelName && this.net && this.internal && this.RAM && this.color && this.buyChannel && this.warranty && this.border && this.screen && this.maintenance)) {
+                    _g.toast('请补充完善信息!');
+                    return;
+                }
+                Http.ajax({
+                    data: {
+                        model: PhoneInfo.model,
+                        modelName: PhoneInfo.modelName,
+                        net: PhoneInfo.net,
+                        internal: PhoneInfo.internal,
+                        RAM: PhoneInfo.RAM,
+                        color: PhoneInfo.color,
+                        buyChannel: PhoneInfo.buyChannel,
+                        warranty: PhoneInfo.warranty ? 1 : 2,
+                        border: PhoneInfo.border,
+                        screen: PhoneInfo.screen,
+                        maintenance: PhoneInfo.maintenance,
+                        other: PhoneInfo.other
                     },
-                    name: 'trade-getPrice',
-                    url: '../trade/getPrice.html',
-                    slidBackEnabled: false,
-                });
+                    url: '/phone/imputedPrice',
+                    // lock: false,
+                    success: function(ret) {
+                        if (ret.code == 200) {
+                            _g.openWin({
+                                header: {
+                                    data: {
+                                        title: '估算价格',
+                                    },
+                                },
+                                name: 'trade-getPrice',
+                                url: '../trade/getPrice.html',
+                                slidBackEnabled: false,
+                                pageParam: {
+                                    phoneID: ret.data.phoneID,
+                                    price: ret.data.price
+                                }
+                            });
+                        } else {
+                            _g.toast(ret.message);
+                        }
+                    },
+                    error: function(err) {}
+                })
+
+
+
             }
         },
     });
-
-    var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
-        $gallery = $("#gallery"),
-        $galleryImg = $("#galleryImg"),
-        $uploaderInput = $("#uploaderInput"),
-        $uploaderFiles = $("#uploaderFiles");
-
-    $uploaderInput.on("change", function(e) {
-        var src, url = window.URL || window.webkitURL || window.mozURL,
-            files = e.target.files;
-        for (var i = 0, len = files.length; i < len; ++i) {
-            var file = files[i];
-
-            if (url) {
-                src = url.createObjectURL(file);
-            } else {
-                src = e.target.result;
-            }
-
-            $uploaderFiles.append($(tmpl.replace('#url#', src)));
-        }
-    });
-    $uploaderFiles.on("click", "li", function() {
-        $galleryImg.attr("style", this.getAttribute("style"));
-        $gallery.fadeIn(100);
-    });
-    $gallery.on("click", function() {
-        $gallery.fadeOut(100);
-    });
-
-
     module.exports = {};
 });

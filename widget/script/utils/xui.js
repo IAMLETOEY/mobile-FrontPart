@@ -458,7 +458,7 @@ define(function(require, exports, module) {
 
     Xui.prototype.constructor = Xui;
 
-    // window.Xui = new Xui();
+    window.Xui = new Xui();
 
     var isApp = !!window.localStorage.getItem('isApp');
     if (typeof api == 'undefined' && !isApp) api = new Xui();

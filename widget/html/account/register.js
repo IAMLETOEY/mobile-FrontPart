@@ -5,19 +5,13 @@ define(function(require, exports, module) {
         el: '#register',
         template: _g.getTemplate('account/register-main-V'),
         data: {
-            phoneNum: '',
+            account: '',
             password: '',
-            codeQR: '',
-            codeText: ''
-        },
-        created: function() {
-            Vcode.init({
-                onInit: this.onInit,
-                onAction: this.onAction,
-            });
+            nickName: '',
+            address: '',
+            idCard: ''
         },
         methods: {
-            
             //申请注册
             onLoginTap: function() {
                 var mobileReg = /^1[0-9]{10}$/;
@@ -35,8 +29,8 @@ define(function(require, exports, module) {
                 //     _g.toast('请输入密码');
                 //     return;
                 // }
-                // postRegist();
-                
+                postRegist();
+
             }
         },
     });
@@ -44,30 +38,23 @@ define(function(require, exports, module) {
     function postRegist() {
         Http.ajax({
             data: {
-                phone: register.phoneNum,
+                account: register.account,
                 password: register.password,
-                vcode: register.codeQR
+                nickName: register.nickName,
+                address: register.address,
+                idCard: register.idCard
             },
             isSync: true,
-            url: '/app/account/register.do',
+            url: '/user/register.do',
             success: function(ret) {
                 if (ret.code == 200) {
-                    // _g.toast(ret.msg);
-                    register.password = '';
-                    register.phoneNum = '';
-                    register.codeQR = '';
-                    _g.openWin({
-                        header: {
-                            data: {
-                                title: '登录',
-                            },
-                        },
-                        name: 'account-login',
-                        url: '../account/login.html',
-                        bounces: false,
-                        slidBackEnabled: false,
-                    });
-                    api && api.closeWin();
+                        register.account = '',
+                        register.password = '',
+                        register.nickName = '',
+                        register.address = '',
+                        register.idCard = ''
+                        setTimeout(_g.toast('注册成功'), 2000);
+                        api && api.closeWin();
                 } else {
                     _g.toast(ret.msg);
                 }

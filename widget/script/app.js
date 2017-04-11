@@ -108,7 +108,8 @@ define(function(require, exports, module) {
     }
 
     if(_g.getLS('UserInfo')){
-        openMainPage();
+        // openMainPage();
+         openLoginPage();
     }else{
         openLoginPage();
     }

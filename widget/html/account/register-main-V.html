@@ -3,23 +3,23 @@
     <div class="ui-register">
         <div class="ui-registerPhone">
             <div class="ui-registerPhone__pic"></div>
-            <input class="ui-registerPhone__phone" type="tel" placeholder="手机号">
+            <input class="ui-registerPhone__phone" type="tel" v-model="account" placeholder="手机号">
         </div>
         <div class="ui-registerPsd">
             <div class="ui-registerPsd__pic"></div>
-            <input class="ui-registerPsd__psd" type="password" placeholder="密码">
+            <input class="ui-registerPsd__psd" type="password" v-model="password" placeholder="密码">
         </div>
         <div class="ui-registerPsd">
             <div class="ui-registerNick__pic"></div>
-            <input class="ui-registerPsd__psd" type="text" placeholder="昵称">
+            <input class="ui-registerPsd__psd" type="text" v-model="nickName" placeholder="昵称">
         </div>
         <div class="ui-registerPsd">
             <div class="ui-registerAdd__pic"></div>
-            <input class="ui-registerPsd__psd" type="text" placeholder="地址">
+            <input class="ui-registerPsd__psd" type="text" v-model="address" placeholder="地址">
         </div>
         <div class="ui-registerPsd">
             <div class="ui-registerId__pic"></div>
-            <input class="ui-registerPsd__psd" type="number" placeholder="身份证">
+            <input class="ui-registerPsd__psd" type="number" v-model="idCard" placeholder="身份证">
         </div>
     </div>
     <div class="ui-registerSure" v-touch:tap="onLoginTap">注册</div>
