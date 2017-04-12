@@ -2,30 +2,16 @@ define(function(require, exports, module) {
     var Http = require('U/http');
     var UserInfo = _g.getLS('UserInfo');
     var sessionID = _g.getLS('sessionID');
-    var UserInfo = new Vue({
+    var myPost = new Vue({
         el: '#myPost',
         template: _g.getTemplate('personal/myPost-main-V'),
         data: {
             title: '订单列表',
-            list: [{
-                price: 2400,
-                address: '广东省广州市天河区棠东东路东岳商业大厦302',
-                transport: 427512196112,
-                status: '已发货',
-                product: '小米note 64G 竹壳版 全网通'
-            }, {
-                price: 890,
-                address: '广东省广州市天河区棠东东路东岳商业大厦302',
-                transport: 427512196112,
-                status: '已发货',
-                product: '小米note'
-            }]
+            list: []
         },
-        created: function() {
-
-        },
+        created: function() {},
         methods: {
-            onModifyPhone: function() {
+            onModifyPhone: function(index) {
                 _g.openWin({
                     header: {
                         data: {
@@ -34,10 +20,13 @@ define(function(require, exports, module) {
                     },
                     name: 'personal-modifyPhone',
                     url: '../personal/modifyPhone.html',
+                    pageParam: {
+                        phoneID: this.list[index]._id
+                    },
                     slidBackEnabled: false,
                 });
             },
-            onOrderList:function () {
+            onOrderList: function(index) {
                 _g.openWin({
                     header: {
                         data: {
@@ -48,9 +37,43 @@ define(function(require, exports, module) {
                     url: '../personal/orderList.html',
                     slidBackEnabled: false,
                 });
+            },
+            onPhoneDetail: function(index) {
+                _g.openWin({
+                    header: {
+                        data: {
+                            title: '手机详情',
+                        },
+                    },
+                    name: 'product-productDetail',
+                    url: '../product/productDetail.html',
+                    slidBackEnabled: false,
+                    pageParam: {
+                        phoneID: this.list[index]._id
+                    }
+                });
             }
         },
     });
+
+    function getPostList() {
+        Http.ajax({
+            data: {
+                user: UserInfo._id
+            },
+            url: '/phone/list',
+            // lock: false,
+            success: function(ret) {
+                if (ret.code == 200) {
+                    myPost.list = ret.data
+                } else {
+                    _g.toast(ret.message);
+                }
+            },
+            error: function(err) {}
+        })
+    }
+    getPostList()
 
 
     module.exports = {};

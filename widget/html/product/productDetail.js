@@ -2,30 +2,28 @@ define(function(require, exports, module) {
     var Http = require('U/http');
     var UserInfo = _g.getLS('UserInfo');
     var sessionID = _g.getLS('sessionID');
-    // var productID = api.pageParam.productID;
+    var phoneID = api.pageParam.phoneID;
     var productDetail = new Vue({
         el: '#productDetail',
         template: _g.getTemplate('product/productDetail-main-V'),
         data: {
-            title: '订单列表',
-            pic: '../../image/httpmiao/402.jpg',
-            text: '小米note 32G 全网通',
-            imputedPrice: '899',
-            sellerPrice: '799',
-            list:[{
-                id:'',
-            }],
-            tipShow:false
+            title: '',
+            pic: '',
+            text: '',
+            imputedPrice: '',
+            sellerPrice: '',
+            phoneInfo:{},
+            tipShow: false
         },
         created: function() {
 
         },
         methods: {
-            onCommentTap:function () {
+            onCommentTap: function() {
                 if (this.tipShow) {
-                    this.tipShow=false;
-                }else{
-                    this.tipShow=true;
+                    this.tipShow = false;
+                } else {
+                    this.tipShow = true;
                 }
             },
             onBuyTap: function() {
@@ -44,8 +42,25 @@ define(function(require, exports, module) {
         },
     });
 
-
+    function getPhoneDetail() {
+        Http.ajax({
+            data: {
+                phone: phoneID
+            },
+            url: '/phone/getPhone',
+            lock: false,
+            success: function(ret) {
+                if (ret.code == 200) {
+                    productDetail.phoneInfo = ret.data;
+                    productDetail.pic = CONFIG.HOST + ret.data.photo
+                } else {
+                    _g.toast(ret.message);
+                }
+            },
+            error: function(err) {}
+        })
+    };
+    getPhoneDetail();
     module.exports = {};
 
 });
-

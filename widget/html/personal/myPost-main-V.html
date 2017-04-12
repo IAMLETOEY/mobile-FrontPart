@@ -1,28 +1,28 @@
-<div class="weui-form-preview">
-    <form action="">
-        <div class="weui-form-preview__hd">
-            <div class="weui-form-preview__item">
-                <label class="weui-form-preview__label">您的报价</label>
-                <em class="weui-form-preview__value">¥2400.00</em>
-            </div>
+<div class="weui-form-preview ui-list" v-for="item in list">
+    <div class="weui-form-preview__hd">
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">您的报价</label>
+            <em class="weui-form-preview__value">￥{{item.sellerPrice}}</em>
         </div>
-        <div class="weui-form-preview__bd">
-            <div class="weui-form-preview__item">
-                <label class="weui-form-preview__label">商品</label>
-                <span class="weui-form-preview__value">小米Note 64G 9成新 黑色</span>
-            </div>
-            <div class="weui-form-preview__item">
-                <label class="weui-form-preview__label">认证情况</label>
-                <span class="weui-form-preview__value">已认证</span>
-            </div>
-            <div class="weui-form-preview__item">
-                <label class="weui-form-preview__label">手机状态</label>
-                <span class="weui-form-preview__value">已出售</span>
-            </div>
+    </div>
+    <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">商品</label>
+            <span class="weui-form-preview__value">{{item.model}}&nbsp;内存{{item.internal ==1?'16G':(item.internal==2?'32G':(item.internal==3?'64G':'128G'))}}&nbsp;
+            运存{{item.RAM}}G&nbsp;{{item.color}}</span>
         </div>
-        <div class="weui-form-preview__ft">
-            <div class="weui-form-preview__btn weui-form-preview__btn_default" v-touch:tap="onModifyPhone" href="javascript:">修改手机信息</div>
-            <div v-touch:tap="onOrderList" class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">查看订单状态</div>
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">认证情况</label>
+            <span class="weui-form-preview__value">{{item.isCertified?'已认证':'未认证'}}</span>
         </div>
-    </form>
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">手机状态</label>
+            <span class="weui-form-preview__value">{{item.isPurchased?'已出售':'未出售'}}</span>
+        </div>
+    </div>
+    <div class="weui-form-preview__ft">
+        <div class="weui-form-preview__btn weui-form-preview__btn_default" v-touch:tap="onModifyPhone($index)">修改手机信息</div>
+        <div v-touch:tap="onPhoneDetail($index)" class="weui-form-preview__btn weui-form-preview__btn_primary">查看手机详情</div>
+        <div v-touch:tap="onOrderList($index)" class="weui-form-preview__btn weui-form-preview__btn_default">查看订单状态</div>
+    </div>
 </div>

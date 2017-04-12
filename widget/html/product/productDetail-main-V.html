@@ -1,15 +1,15 @@
 <div class="weui-panel weui-panel_access">
     <div class="weui-media-box weui-media-box_text">
-        <img class="ui-productPic" src="../../image/oppoR9.jpg" alt="">
+        <img class="ui-productPic" src="{{pic}}" alt="">
     </div>
     <div class="weui-media-box weui-media-box_text" style="position: relative;">
         <h4 class="weui-media-box__title">
-        <span class="ui-sellerPrice">￥{{sellerPrice}} &nbsp;</span>
+        <span class="ui-sellerPrice">￥{{phoneInfo.sellerPrice}} &nbsp;</span>
         <span class="ui-imputedPrice1">估算价:</span>
-        <span class="ui-imputedPrice2">  {{imputedPrice}}</span>
+        <span class="ui-imputedPrice2">  {{phoneInfo.imputedPrice}}</span>
         </h4>
-        <p class="weui-media-box__desc">{{text}}</p>
-        <div class="isCertified">
+        <p class="weui-media-box__desc">{{phoneInfo.model}}&nbsp;{{phoneInfo.net}}&nbsp;{{phoneInfo.internal}}</p>
+        <div v-show="phoneInfo.isCertified" class="isCertified">
             <i style="font-size: .8rem;" class="weui-icon-success weui-icon_msg"></i>
             <p class="weui-media-box__desc">已认证</p>
         </div>
@@ -17,19 +17,22 @@
     <div class="weui-media-box weui-media-box_text">
         <h4 class="weui-media-box__title"> 详细参数</h4>
         <p class="weui-media-box__desc">
-            <span class="ui-phoneDetail">购买渠道:&nbsp;&nbsp;&nbsp;京东</span>
+            <span class="ui-phoneDetail">购买渠道:&nbsp;&nbsp;&nbsp;{{phoneInfo.buyChannel}}</span>
         </p>
         <p class="weui-media-box__desc">
-            <span class="ui-phoneDetail">保修情况:&nbsp;&nbsp;&nbsp;保修期内</span>
+            <span class="ui-phoneDetail">保修情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.warranty}}</span>
         </p>
         <p class="weui-media-box__desc">
-            <span class="ui-phoneDetail">边框情况:&nbsp;&nbsp;&nbsp;稍有磨损</span>
+            <span class="ui-phoneDetail">边框情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.border}}</span>
         </p>
         <p class="weui-media-box__desc">
-            <span class="ui-phoneDetail">维修情况:&nbsp;&nbsp;&nbsp;无维修记录</span>
+            <span class="ui-phoneDetail">维修情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.maintenance}}</span>
         </p>
         <p class="weui-media-box__desc">
-            <span class="ui-phoneDetail">故障情况:&nbsp;&nbsp;&nbsp;九成新</span>
+            <span class="ui-phoneDetail">屏幕情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.screen}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">故障情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.failure}}</span>
         </p>
     </div>
 </div>

@@ -11,9 +11,9 @@
 </div>
 <div class="ui-body">
     <div class="ui-product" v-for="item in list" v-touch:tap="onDetailTap($index)">
-        <div class="ui-productPic" style="background-image: url({{item.pic}});"></div>
+        <div class="ui-productPic" style="background-image: url({{root}}{{item.photo}});"></div>
         <div class="ui-productText">
-            <p>{{item.text}}</p>
+            <p>{{item.model}}&nbsp;内存{{item.internal ==1?'16G':(item.internal==2?'32G':(item.internal==3?'64G':'128G'))}}&nbsp;{{item.net ==1?'移动版':(item.net==2?'联通版':(item.net==3?'电信版':(item.net==4?'双网通':'全网通')))}}</p>
             <span class="ui-sellerPrice">{{item.sellerPrice}}</span>
             <span class="ui-imputedPrice1"> 估算价:</span><span class="ui-imputedPrice2">  {{item.imputedPrice}}</span>
         </div>

@@ -26,8 +26,7 @@
                     <p class="weui-uploader__title">上传手机图</p>
                 </div>
                 <div class="weui-uploader__bd">
-                    <div class="weui-uploader__input-box">
-                        <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                    <div class="weui-uploader__input-box" v-touch:tap="onPicTap">
                     </div>
                 </div>
             </div>
@@ -35,6 +34,6 @@
     </div>
     <div class="ui-sure">
         <div v-touch:tap="onPostPhone" class="weui-btn weui-btn_primary">发布手机</div>
-        <div v-touch:tap="onBack" class="weui-btn weui-btn_default">返回</div>
+        <div v-touch:tap="onBack" class="weui-btn weui-btn_default">返回首页</div>
     </div>
 </div>
