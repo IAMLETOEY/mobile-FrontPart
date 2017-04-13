@@ -1,36 +1,42 @@
 <div class="ui-body">
-    <div class="weui-form-preview">
+    <div class="weui-form-preview" style="margin-bottom: 1rem;" v-for="item in list">
         <div class="weui-form-preview__hd">
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">订单金额</label>
-                <em class="weui-form-preview__value">¥2400.00</em>
+                <em class="weui-form-preview__value">¥{{item.price}}</em>
             </div>
         </div>
         <div class="weui-form-preview__bd">
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">手机</label>
-                <span class="weui-form-preview__value">小米Note 64G</span>
+                <span class="weui-form-preview__value">{{item.phone.model}}&nbsp;{{item.internal ==1?'16G':(item.internal==2?'32G':(item.internal==3?'64G':'128G'))}}</span>
             </div>
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">收货人</label>
-                <span class="weui-form-preview__value">用户小王</span>
+                <span class="weui-form-preview__value">{{item.receiver}}</span>
             </div>
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">收货地址</label>
-                <span class="weui-form-preview__value">广东省广州市天河区东岳商业大厦</span>
+                <span class="weui-form-preview__value">{{item.address}}</span>
             </div>
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">手机号</label>
-                <span class="weui-form-preview__value">15989266787</span>
+                <span class="weui-form-preview__value">{{item.receiverPhone}}</span>
+            </div>
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">快递单号</label>
+                <span class="weui-form-preview__value">{{item.transport}}</span>
             </div>
             <div class="weui-form-preview__item">
                 <label class="weui-form-preview__label">交易状态</label>
-                <span class="weui-form-preview__value">已发货</span>
+                <span class="weui-form-preview__value">{{item.status == 1?'已发货':(item.status == 2?'已确认':'未发货')}}</span>
             </div>
         </div>
         <div class="weui-form-preview__ft">
-            <div class="weui-form-preview__btn weui-form-preview__btn_default" href="javascript:">确认收货</div>
-            <div class="weui-form-preview__btn weui-form-preview__btn_primary" v-touch:tap="onOrderListTap">订单列表</div>
+            <div class="weui-form-preview__btn weui-form-preview__btn_default" v-touch:tap="onSureTap($index)">确认收货</div>
+            <div class="weui-form-preview__btn weui-form-preview__btn_primary" v-touch:tap="onPhoneTap($index)">查看手机</div>
+            <div class="weui-form-preview__btn weui-form-preview__btn_default" v-touch:tap="onPhotoTap($index)">发货照片</div>
         </div>
     </div>
+
 </div>

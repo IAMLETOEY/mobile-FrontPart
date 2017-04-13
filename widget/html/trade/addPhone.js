@@ -24,7 +24,7 @@ define(function(require, exports, module) {
         },
         methods: {
             onCheckPhone: function() {
-                if (!(this.modelName && this.net && this.internal && this.RAM && this.color && this.buyChannel && this.warranty && this.border && this.screen && this.maintenance)) {
+                if (!(this.modelName && this.net && this.internal && this.RAM && this.color && this.buyChannel && this.border && this.screen && this.maintenance)) {
                     _g.toast('请补充完善信息!');
                     return;
                 }

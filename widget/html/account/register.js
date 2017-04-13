@@ -45,7 +45,7 @@ define(function(require, exports, module) {
                 idCard: register.idCard
             },
             isSync: true,
-            url: '/user/register.do',
+            url: '/user/register',
             success: function(ret) {
                 if (ret.code == 200) {
                         register.account = '',

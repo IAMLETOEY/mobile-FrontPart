@@ -5,7 +5,7 @@
             <label class="weui-label">收货地址</label>
         </div>
         <div class="weui-cell__bd">
-            <input class="weui-input" type="text" placeholder="请输入地址">
+            <input class="weui-input" v-model="address" type="text" placeholder="请输入地址">
         </div>
     </div>
     <div class="weui-cell">
@@ -13,7 +13,7 @@
             <label class="weui-label">联系人</label>
         </div>
         <div class="weui-cell__bd">
-            <input class="weui-input" type="text" placeholder="请输入收件人">
+            <input class="weui-input" v-model="receiver" type="text" placeholder="请输入收件人">
         </div>
     </div>
     <div class="weui-cell">
@@ -21,7 +21,7 @@
             <label class="weui-label">收货手机号</label>
         </div>
         <div class="weui-cell__bd">
-            <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入联系方式">
+            <input class="weui-input" type="number" v-model="receiverPhone" pattern="[0-9]*" placeholder="请输入手机号">
         </div>
     </div>
 </div>

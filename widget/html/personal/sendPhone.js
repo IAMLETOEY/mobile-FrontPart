@@ -3,15 +3,12 @@ define(function(require, exports, module) {
     var UserInfo = _g.getLS('UserInfo');
     var sessionID = _g.getLS('sessionID');
     var phoneID = api.pageParam.phoneID;
-    var price = api.pageParam.price;
-    var getPrice = new Vue({
-        el: '#getPrice',
-        template: _g.getTemplate('trade/getPrice-main-V'),
+    var sendPhone = new Vue({
+        el: '#sendPhone',
+        template: _g.getTemplate('personal/sendPhone-main-V'),
         data: {
-            price: '' + price,
-            sellerPrice: price,
-            phone: phoneID,
-            picture: ''
+            transport: 0,
+            picture:0,
         },
         created: function() {
 
@@ -24,39 +21,27 @@ define(function(require, exports, module) {
                         if (!ret.base64Data) {
                             return;
                         } else {
-                            postPhoto(getPrice.phone, ret.base64Data)
+                            postPhoto(ret.base64Data,phoneID)
                         }
                     }
                 });
             },
             onPostPhone: function() {
-                if (!getPrice.picture) {
-                    _g.toast('请先上传图片!')
+                if (!(this.picture && this.transport)) {
+                    _g.toast('请先填写信息并上传图片!')
                     return;
-                }
+                } 
                 Http.ajax({
                     data: {
-                        price: getPrice.price,
-                        sellerPrice: getPrice.sellerPrice,
-                        phone: getPrice.phone,
-                        isPost: 1
+                        isUpdate: 1,
+                        phoneID: phoneID,
+                        transport: sendPhone.transport
                     },
                     isSync: true,
-                    url: '/phone/modifyPhone',
+                    url: '/order/receivePhone',
                     success: function(ret) {
                         if (ret.code == 200) {
-                            _g.openWin({
-                                header: {
-                                    data: {
-                                        title: '我的发布',
-                                    },
-                                },
-                                name: 'personal-myPost',
-                                url: '../personal/myPost.html',
-                                slidBackEnabled: false,
-                            });
-
-                            setTimeout(_g.toast('发布成功'), 2000);
+                            _g.toast('修改成功')
                             api && api.closeWin();
                         } else {
                             _g.toast(ret.msg);
@@ -71,17 +56,17 @@ define(function(require, exports, module) {
         },
     });
 
-    function postPhoto(phoneID, data) {
+    function postPhoto(data,phoneID) {
         Http.ajax({
             data: {
-                _id: phoneID,
+                phoneID: phoneID,
                 base64: data.split(',')[1]
             },
             isSync: true,
-            url: '/phone/addPhonePicture',
+            url: '/order/addOrderPicture',
             success: function(ret) {
                 if (ret.code == 200) {
-                    getPrice.picture = 1;
+                    sendPhone.picture = 1;
                     _g.toast('图片上传成功');
                 } else {
                     // _g.toast(ret.msg);

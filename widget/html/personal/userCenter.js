@@ -9,17 +9,17 @@ define(function(require, exports, module) {
            title:'用户中心',
            list:[{
             pic:'../../image/account/order.png',
-            name: '我的订单',
+            name: '我的购买',
            },{
             pic:'../../image/account/money.png',
-            name: '我的钱包',
+            name: '我的出售',
             account:"111"
            },{
             pic:'../../image/account/phone.png',
             name: '我的发布',
            },{
             pic:'../../image/account/nickname.png',
-            name: '我的认证',
+            name: '我的信用',
            },{
             pic:'../../image/account/setting.png',
             name: '我的设置',
@@ -41,7 +41,6 @@ define(function(require, exports, module) {
                 else if (index == 1) {
                     // name = 'personal-myLocation';
                     // url = '../personal/myLocation.html';
-                    template = 'common/header-save-V';
                 } else if (index == 2) {
                     name = 'personal-myPost';
                     url = '../personal/myPost.html';

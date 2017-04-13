@@ -1,0 +1,27 @@
+<div class="weui-cells weui-cells_form">
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">快递号</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" v-model="transport" type="number" pattern="[0-9]*" placeholder="请输入快递号">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <div class="weui-uploader">
+                <div class="weui-uploader__hd">
+                    <p class="weui-uploader__title">上传发货图</p>
+                </div>
+                <div class="weui-uploader__bd">
+                    <div class="weui-uploader__input-box" v-touch:tap="onPicTap">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-sure">
+        <div v-touch:tap="onPostPhone" class="weui-btn weui-btn_primary">确认发货</div>
+        <div v-touch:tap="onBack" class="weui-btn weui-btn_default">返回首页</div>
+    </div>
+</div>

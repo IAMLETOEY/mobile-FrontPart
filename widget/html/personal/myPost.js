@@ -26,16 +26,23 @@ define(function(require, exports, module) {
                     slidBackEnabled: false,
                 });
             },
-            onOrderList: function(index) {
+            onSendPhone: function(index) {
+                if(!this.list[index].isPurchased){
+                    _g.toast('该商品还未被购买!');
+                    return;
+                }
                 _g.openWin({
                     header: {
                         data: {
-                            title: '订单列表',
+                            title: '确认发货',
                         },
                     },
-                    name: 'personal-orderList',
-                    url: '../personal/orderList.html',
+                    name: 'personal-sendPhone',
+                    url: '../personal/sendPhone.html',
                     slidBackEnabled: false,
+                    pageParam: {
+                        phoneID: this.list[index]._id
+                    }
                 });
             },
             onPhoneDetail: function(index) {
@@ -74,8 +81,6 @@ define(function(require, exports, module) {
         })
     }
     getPostList()
-
-
     module.exports = {};
 
 });

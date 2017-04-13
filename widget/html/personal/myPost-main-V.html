@@ -1,4 +1,4 @@
-<div class="weui-form-preview ui-list" v-for="item in list">
+<div class="weui-form-preview ui-list" v-for="item in list" style="margin-bottom: 1rem">
     <div class="weui-form-preview__hd">
         <div class="weui-form-preview__item">
             <label class="weui-form-preview__label">您的报价</label>
@@ -21,8 +21,8 @@
         </div>
     </div>
     <div class="weui-form-preview__ft">
-        <div class="weui-form-preview__btn weui-form-preview__btn_default" v-touch:tap="onModifyPhone($index)">修改手机信息</div>
-        <div v-touch:tap="onPhoneDetail($index)" class="weui-form-preview__btn weui-form-preview__btn_primary">查看手机详情</div>
-        <div v-touch:tap="onOrderList($index)" class="weui-form-preview__btn weui-form-preview__btn_default">查看订单状态</div>
+        <div class="weui-form-preview__btn weui-form-preview__btn_default" v-touch:tap="onModifyPhone($index)">修改手机</div>
+        <div v-touch:tap="onPhoneDetail($index)" class="weui-form-preview__btn weui-form-preview__btn_primary">查看手机</div>
+        <div v-touch:tap="onSendPhone($index)" class="weui-form-preview__btn weui-form-preview__btn_default">确认发货</div>
     </div>
 </div>
