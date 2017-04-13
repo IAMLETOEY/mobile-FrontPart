@@ -2,6 +2,8 @@ define(function(require, exports, module) {
     var Http = require('U/http');
     var UserInfo = _g.getLS('UserInfo');
     var sessionID = _g.getLS('sessionID');
+    var imageBrowser = api.require('imageBrowser');
+    var openPic = [];
     var myBuy = new Vue({
         el: '#myBuy',
         template: _g.getTemplate('personal/myBuy-main-V'),
@@ -52,10 +54,12 @@ define(function(require, exports, module) {
                 });
             },
             onPhotoTap: function(index) {
-                var imageBrowser = api.require('imageBrowser');
+                openPic = [];
+                var a = CONFIG.HOST + myBuy.list[index].photo;
+                openPic = openPic.push(a);
                 imageBrowser.openImages({
-                    showList:false,
-                    imageUrls:CONFIG.HOST + myBuy.list[index].photo
+                    // showList:false,
+                    imageUrls:[a],
                 });
                 // _g.openWin({
                 //     header: {

@@ -26,6 +26,10 @@
                     <p class="weui-uploader__title">上传手机图</p>
                 </div>
                 <div class="weui-uploader__bd">
+                    <ul class="weui-uploader__files" id="uploaderFiles">
+                        <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url({{addPic|trans-avatar}})" v-touch:tap="onLookPicTap">
+                        </li>
+                    </ul>
                     <div class="weui-uploader__input-box" v-touch:tap="onPicTap">
                     </div>
                 </div>

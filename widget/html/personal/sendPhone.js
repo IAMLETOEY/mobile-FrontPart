@@ -2,18 +2,32 @@ define(function(require, exports, module) {
     var Http = require('U/http');
     var UserInfo = _g.getLS('UserInfo');
     var sessionID = _g.getLS('sessionID');
+    var imageBrowser = api.require('imageBrowser');
+    var openPic = [];
     var phoneID = api.pageParam.phoneID;
     var sendPhone = new Vue({
         el: '#sendPhone',
         template: _g.getTemplate('personal/sendPhone-main-V'),
         data: {
             transport: 0,
-            picture:0,
+            picture: 0,
+            addPic: '',
         },
         created: function() {
 
         },
         methods: {
+            onLookPicTap: function() {
+                if (sendPhone.addPic == '') {
+                    return;
+                }
+                openPic = [];
+                var a = CONFIG.HOST + sendPhone.addPic;
+                openPic = openPic.push(a);
+                imageBrowser.openImages({
+                    imageUrls: [a],
+                });
+            },
             onPicTap: function() {
                 _g.openPicActionSheet({
                     allowEdit: true,
@@ -21,7 +35,7 @@ define(function(require, exports, module) {
                         if (!ret.base64Data) {
                             return;
                         } else {
-                            postPhoto(ret.base64Data,phoneID)
+                            postPhoto(ret.base64Data, phoneID)
                         }
                     }
                 });
@@ -30,7 +44,7 @@ define(function(require, exports, module) {
                 if (!(this.picture && this.transport)) {
                     _g.toast('请先填写信息并上传图片!')
                     return;
-                } 
+                }
                 Http.ajax({
                     data: {
                         isUpdate: 1,
@@ -56,7 +70,7 @@ define(function(require, exports, module) {
         },
     });
 
-    function postPhoto(data,phoneID) {
+    function postPhoto(data, phoneID) {
         Http.ajax({
             data: {
                 phoneID: phoneID,
@@ -67,6 +81,7 @@ define(function(require, exports, module) {
             success: function(ret) {
                 if (ret.code == 200) {
                     sendPhone.picture = 1;
+                    sendPhone.addPic = ret.data.picture;
                     _g.toast('图片上传成功');
                 } else {
                     // _g.toast(ret.msg);

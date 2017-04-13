@@ -4,6 +4,8 @@ define(function(require, exports, module) {
     var sessionID = _g.getLS('sessionID');
     var phoneID = api.pageParam.phoneID;
     var price = api.pageParam.price;
+    var imageBrowser = api.require('imageBrowser');
+    var openPic = [];
     var getPrice = new Vue({
         el: '#getPrice',
         template: _g.getTemplate('trade/getPrice-main-V'),
@@ -11,12 +13,24 @@ define(function(require, exports, module) {
             price: '' + price,
             sellerPrice: price,
             phone: phoneID,
-            picture: ''
+            picture: '',
+            addPic: '',
         },
         created: function() {
 
         },
         methods: {
+            onLookPicTap: function() {
+                if (getPrice.addPic == '') {
+                    return;
+                }
+                openPic = [];
+                var a = CONFIG.HOST + getPrice.addPic;
+                openPic = openPic.push(a);
+                imageBrowser.openImages({
+                    imageUrls: [a],
+                });
+            },
             onPicTap: function() {
                 _g.openPicActionSheet({
                     allowEdit: true,
@@ -83,6 +97,7 @@ define(function(require, exports, module) {
                 if (ret.code == 200) {
                     getPrice.picture = 1;
                     _g.toast('图片上传成功');
+                    getPrice.addPic = ret.data.picture;
                 } else {
                     // _g.toast(ret.msg);
                 }

@@ -12,8 +12,7 @@ define(function(require, exports, module) {
             name: '我的购买',
            },{
             pic:'../../image/account/money.png',
-            name: '我的出售',
-            account:"111"
+            name: '完成订单'
            },{
             pic:'../../image/account/phone.png',
             name: '我的发布',

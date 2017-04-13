@@ -2,17 +2,30 @@ define(function(require, exports, module) {
     var Http = require('U/http');
     var UserInfo = _g.getLS('UserInfo');
     var sessionID = _g.getLS('sessionID');
+    var imageBrowser = api.require('imageBrowser');
+    var openPic = [];
     var setInfo = new Vue({
         el: '#setInfo',
         template: _g.getTemplate('personal/setInfo-main-V'),
         data: {
             title: '用户设置',
             list: [],
-            UserInfo: UserInfo
+            UserInfo: UserInfo,
+            addPic: UserInfo.avatar,
         },
-        created: function() {
-        },
+        created: function() {},
         methods: {
+            onLookPicTap: function() {
+                if (getPrice.addPic == '') {
+                    return;
+                }
+                openPic = [];
+                var a = CONFIG.HOST + getPrice.addPic;
+                openPic = openPic.push(a);
+                imageBrowser.openImages({
+                    imageUrls: [a],
+                });
+            },
             onCancel: function() {
                 api.closeWin();
             },
@@ -33,11 +46,41 @@ define(function(require, exports, module) {
                     },
                     error: function(err) {}
                 })
-            }
+            },
+            onPicTap: function() {
+                _g.openPicActionSheet({
+                    allowEdit: true,
+                    suc: function(ret) {
+                        if (!ret.base64Data) {
+                            return;
+                        } else {
+                            postPhoto(ret.base64Data)
+                        }
+                    }
+                });
+            },
         },
     });
 
-
+    function postPhoto(data) {
+        Http.ajax({
+            data: {
+                base64: data.split(',')[1]
+            },
+            isSync: true,
+            url: '/user/avatar',
+            success: function(ret) {
+                if (ret.code == 200) {
+                    _g.toast('头像上传成功');
+                    UserInfo.avatar = ret.data.avatar;
+                    _g.setLS('UserInfo', UserInfo);
+                } else {
+                    // _g.toast(ret.msg);
+                }
+            },
+            error: function(err) {}
+        });
+    };
     module.exports = {};
 
 });
