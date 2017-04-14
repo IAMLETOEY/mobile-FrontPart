@@ -14,6 +14,18 @@
             <p class="weui-media-box__desc">已认证</p>
         </div>
     </div>
+    <div class="weui-media-box weui-media-box_text" style="position: relative;">
+        <h4 class="weui-media-box__title"> 用户信息</h4>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">昵称:&nbsp;&nbsp;&nbsp;{{addUser.nickName}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">电话:&nbsp;&nbsp;&nbsp;{{addUser.account}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">地址:&nbsp;&nbsp;&nbsp;{{addUser.address}}</span>
+        </p>
+    </div>
     <div class="weui-media-box weui-media-box_text">
         <h4 class="weui-media-box__title"> 详细参数</h4>
         <p class="weui-media-box__desc">
@@ -51,9 +63,6 @@
 <div class="ui-purchanse">
     <div v-touch:tap="onBuyTap" class="weui-btn weui-btn_primary">立即购买</div>
 </div>
-
-
-
 <div class="ui-shadow" v-show="tipShow" v-touch:tap="onCommentTap"></div>
 <div class="ui-tip" v-show="tipShow">
     <div class="weui-cells__title">评论</div>
@@ -62,17 +71,13 @@
             <textarea class="weui-textarea" v-model="content" placeholder="请输入文本" rows="4"></textarea>
         </div>
     </div>
-    <div class="ui-onSure" >
-    <div class="weui-btn weui-btn weui-btn_primary" v-touch:tap="onSureTap">确定</div>
+    <div class="ui-onSure">
+        <div class="weui-btn weui-btn weui-btn_primary" v-touch:tap="onSureTap">确定</div>
     </div>
-    <div class="ui-onCancel" >
+    <div class="ui-onCancel">
         <div v-touch:tap="onCommentTap" class="weui-btn weui-btn_default">取消</div>
     </div>
 </div>
-
-
-
-
 <div class="ui-shadow" v-show="peopleShow" v-touch:tap="onOtherCommentTap"></div>
 <div class="ui-tip" v-show="peopleShow">
     <div class="weui-cells__title">评论</div>
@@ -81,10 +86,10 @@
             <textarea class="weui-textarea" v-model="peopleContent" placeholder="请输入文本" rows="4"></textarea>
         </div>
     </div>
-    <div class="ui-onSure" >
-    <div class="weui-btn weui-btn weui-btn_primary" v-touch:tap="onOtherSureTap">确定</div>
+    <div class="ui-onSure">
+        <div class="weui-btn weui-btn weui-btn_primary" v-touch:tap="onOtherSureTap">确定</div>
     </div>
-    <div class="ui-onCancel" >
+    <div class="ui-onCancel">
         <div v-touch:tap="onOtherCommentTap" class="weui-btn weui-btn_default">取消</div>
     </div>
 </div>

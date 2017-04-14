@@ -95,6 +95,12 @@ define(function(require, exports, module) {
         })
     }
     getProductList();
+
+    api.addEventListener({
+        name: 'postPhone'
+    }, function() {
+        getProductList()
+    })
     module.exports = {};
 
 });

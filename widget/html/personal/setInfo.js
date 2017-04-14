@@ -74,13 +74,15 @@ define(function(require, exports, module) {
                     _g.toast('头像上传成功');
                     UserInfo.avatar = ret.data.avatar;
                     _g.setLS('UserInfo', UserInfo);
+                    api.sendEvent({
+                        name:'updateAvatar'
+                    })
                 } else {
-                    // _g.toast(ret.msg);
+                    _g.toast(ret.msg);
                 }
             },
             error: function(err) {}
         });
     };
     module.exports = {};
-
 });

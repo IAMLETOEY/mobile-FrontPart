@@ -89,5 +89,4 @@ define(function(require, exports, module) {
     };
     getPhoneDetail();
     module.exports = {};
-
 });

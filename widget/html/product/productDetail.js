@@ -18,7 +18,8 @@ define(function(require, exports, module) {
             tipShow: false,
             peopleShow: false,
             peopleIndex: 0,
-            commentList: []
+            commentList: [],
+            addUser: {}
         },
         created: function() {
 
@@ -126,12 +127,14 @@ define(function(require, exports, module) {
     function getPhoneDetail() {
         Http.ajax({
             data: {
-                phone: phoneID
+                phone: phoneID,
+                isCertified: 1
             },
             url: '/phone/getPhone',
             lock: false,
             success: function(ret) {
                 if (ret.code == 200) {
+                    productDetail.addUser = ret.data.addUser;
                     productDetail.phoneInfo = ret.data;
                     productDetail.pic = CONFIG.HOST + ret.data.photo
                 } else {

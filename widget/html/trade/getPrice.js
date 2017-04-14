@@ -43,7 +43,7 @@ define(function(require, exports, module) {
                     }
                 });
             },
-            onCertifiedTap:function () {
+            onCertifiedTap: function() {
                 Http.ajax({
                     data: {
                         phone: getPrice.phone,
@@ -87,8 +87,10 @@ define(function(require, exports, module) {
                                 url: '../personal/myPost.html',
                                 slidBackEnabled: false,
                             });
-
                             setTimeout(_g.toast('发布成功'), 2000);
+                            api.sendEvent({
+                                name: 'postPhone'
+                            })
                             api && api.closeWin();
                         } else {
                             _g.toast(ret.msg);

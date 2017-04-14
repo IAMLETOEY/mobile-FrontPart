@@ -23,7 +23,7 @@ define(function(require, exports, module) {
             pic:'../../image/account/setting.png',
             name: '我的设置',
            }],
-           avatar: UserInfo.avatar
+           avatar: '',
         },
         created: function() {
 
@@ -67,8 +67,29 @@ define(function(require, exports, module) {
           }
         },
     });
-
-
+    api.addEventListener({
+        name:'updateAvatar'
+    },function () {
+        getAvatar()
+    })
+    function getAvatar() {
+         Http.ajax({
+            data: {},
+            isSync: true,
+            url: '/user/info',
+            success: function(ret) {
+                if (ret.code == 200) {
+                    userCenter.avatar = ret.data.avatar;
+                    _g.setLS('UserInfo', ret.data);
+                } else {
+                    _g.toast(ret.msg);
+                }
+            },
+            error: function(err) {
+                _g.toast(err)
+            }
+        });
+    }
      module.exports = {};
 
 });
