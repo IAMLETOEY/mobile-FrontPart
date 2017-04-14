@@ -48,7 +48,7 @@ define(function(require, exports, module) {
 
             },
             onBuyTap: function() {
-                if(UserInfo._id == productDetail.phoneInfo.addUser){
+                if(UserInfo._id == productDetail.phoneInfo.addUser._id){
                     _g.toast('不能购买自己发布的手机!');
                     return;
                 }

@@ -20,7 +20,8 @@ define(function(require, exports, module) {
             maintenance: '',
             failure: '',
             sellerPrice: 0,
-            isAdmin: UserInfo.type == 2?0:1
+            isAdmin: UserInfo.type == 2?0:1,
+            modifyFlag : 0
         },
         created: function() {
 
@@ -48,6 +49,9 @@ define(function(require, exports, module) {
                         success: function(ret) {
                             if (ret.code == 200) {
                                 alert('修改成功!');
+                                api.sendEvent({
+                                    name:'modifyPhone'
+                                })
                                 api && api.closeWin();
                             } else {
                                 _g.toast(ret.msg);
@@ -76,6 +80,9 @@ define(function(require, exports, module) {
                         success: function(ret) {
                             if (ret.code == 200) {
                                 alert('修改成功!');
+                                api.sendEvent({
+                                    name:'modifyPhone'
+                                })
                                 api && api.closeWin();
                             } else {
                                 _g.toast(ret.msg);
@@ -110,7 +117,8 @@ define(function(require, exports, module) {
                         modifyPhone.screen = ret.data.screen,
                         modifyPhone.maintenance = ret.data.maintenance,
                         modifyPhone.failure = ret.data.failure,
-                        modifyPhone.sellerPrice = ret.data.sellerPrice
+                        modifyPhone.sellerPrice = ret.data.sellerPrice,
+                        modifyPhone.modifyFlag = ret.data.isCertified
                 } else {
                     _g.toast(ret.msg);
                 }

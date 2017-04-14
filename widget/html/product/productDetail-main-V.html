@@ -48,7 +48,7 @@
         </p>
     </div>
 </div>
-<div class="weui-panel" style="margin-bottom: 1rem;">
+<div class="weui-panel" v-show="commentList.length" style="margin-bottom: 1rem;">
     <div class="weui-panel__hd">用户评论</div>
     <div class="weui-panel__bd" v-for="item in commentList">
         <div v-touch:tap="onOtherCommentTap($index)" class="weui-media-box weui-media-box_text">

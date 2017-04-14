@@ -1,5 +1,5 @@
 <div class="ui-body">
-    <div class="weui-cell weui-cell_select weui-cell_select-after">
+    <div v-show="!modifyFlag" class="weui-cell weui-cell_select weui-cell_select-after">
         <div class="weui-cell__hd">
             <label for="" class="weui-label">网络制式</label>
         </div>
@@ -13,7 +13,7 @@
             </select>
         </div>
     </div>
-    <div class="weui-cell weui-cell_select weui-cell_select-after">
+    <div v-show="!modifyFlag" class="weui-cell weui-cell_select weui-cell_select-after">
         <div class="weui-cell__hd">
             <label class="weui-label">内存大小</label>
         </div>
@@ -26,7 +26,7 @@
             </select>
         </div>
     </div>
-    <div class="weui-cell weui-cell_vcode">
+    <div v-show="!modifyFlag" class="weui-cell weui-cell_vcode">
         <div class="weui-cell__hd">
             <label class="weui-label">运存大小</label>
         </div>
@@ -37,7 +37,7 @@
             <button class="weui-vcode-btn">G &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</button>
         </div>
     </div>
-    <div class="weui-cell ">
+    <div v-show="!modifyFlag" class="weui-cell ">
         <div class="weui-cell__hd">
             <label for="" class="weui-label">机身颜色</label>
         </div>
@@ -45,7 +45,7 @@
             <input class="weui-input" v-model="color" type="string">
         </div>
     </div>
-    <div class="weui-cell weui-cell_select weui-cell_select-after">
+    <div v-show="!modifyFlag" class="weui-cell weui-cell_select weui-cell_select-after">
         <div class="weui-cell__hd">
             <label for="" class="weui-label">购买渠道</label>
         </div>
@@ -58,13 +58,13 @@
             </select>
         </div>
     </div>
-    <div class="weui-cell weui-cell_switch">
+    <div v-show="!modifyFlag" class="weui-cell weui-cell_switch">
         <div class="weui-cell__bd">尚处于保修期</div>
         <div class="weui-cell__ft">
             <input class="weui-switch" v-model="warranty" type="checkbox">
         </div>
     </div>
-    <div class="weui-cell weui-cell_select weui-cell_select-after">
+    <div v-show="!modifyFlag" class="weui-cell weui-cell_select weui-cell_select-after">
         <div class="weui-cell__hd">
             <label for="" class="weui-label">边框背板</label>
         </div>
@@ -75,7 +75,7 @@
             </select>
         </div>
     </div>
-    <div class="weui-cell weui-cell_select weui-cell_select-after">
+    <div v-show="!modifyFlag" class="weui-cell weui-cell_select weui-cell_select-after">
         <div class="weui-cell__hd">
             <label for="" class="weui-label">屏幕外观</label>
         </div>
@@ -87,7 +87,7 @@
             </select>
         </div>
     </div>
-    <div class="weui-cell weui-cell_select weui-cell_select-after">
+    <div v-show="!modifyFlag" class="weui-cell weui-cell_select weui-cell_select-after">
         <div class="weui-cell__hd">
             <label for="" class="weui-label">拆机维修</label>
         </div>

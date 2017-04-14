@@ -80,7 +80,8 @@ define(function(require, exports, module) {
         }
         Http.ajax({
             data: {
-                isCertified: isCertified
+                isCertified: isCertified,
+                isMainPage:1
             },
             url: '/phone/list',
             lock: false,

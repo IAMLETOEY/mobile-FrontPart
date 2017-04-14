@@ -11,7 +11,7 @@ define(function(require, exports, module) {
             title: '用户设置',
             list: [],
             UserInfo: UserInfo,
-            addPic: UserInfo.avatar,
+            avatar: UserInfo.avatar,
         },
         created: function() {},
         methods: {
@@ -74,9 +74,10 @@ define(function(require, exports, module) {
                     _g.toast('头像上传成功');
                     UserInfo.avatar = ret.data.avatar;
                     _g.setLS('UserInfo', UserInfo);
+                    getAvatar();
                     api.sendEvent({
                         name:'updateAvatar'
-                    })
+                    });
                 } else {
                     _g.toast(ret.msg);
                 }
@@ -84,5 +85,25 @@ define(function(require, exports, module) {
             error: function(err) {}
         });
     };
+    function getAvatar() {
+         Http.ajax({
+            data: {},
+            isSync: true,
+            url: '/user/info',
+            success: function(ret) {
+                if (ret.code == 200) {
+                    setInfo.avatar = ret.data.avatar;
+
+                    alert(setInfo.avatar)
+                    _g.setLS('UserInfo', ret.data);
+                } else {
+                    _g.toast(ret.msg);
+                }
+            },
+            error: function(err) {
+                _g.toast(err)
+            }
+        });
+    }
     module.exports = {};
 });

@@ -11,19 +11,13 @@ define(function(require, exports, module) {
             pic:'../../image/account/order.png',
             name: '我的购买',
            },{
-            pic:'../../image/account/money.png',
-            name: '完成订单'
-           },{
             pic:'../../image/account/phone.png',
             name: '我的发布',
-           },{
-            pic:'../../image/account/nickname.png',
-            name: '我的信用',
            },{
             pic:'../../image/account/setting.png',
             name: '我的设置',
            }],
-           avatar: '',
+           avatar: UserInfo.avatar,
         },
         created: function() {
 
@@ -39,16 +33,9 @@ define(function(require, exports, module) {
                     url = '../personal/myBuy.html';
                 } 
                 else if (index == 1) {
-                    // name = 'personal-myLocation';
-                    // url = '../personal/myLocation.html';
-                } else if (index == 2) {
                     name = 'personal-myPost';
                     url = '../personal/myPost.html';
-                }
-                else if (index == 3) {
-                    // name = 'personal-joinIn';
-                    // url = '../personal/joinIn.html';
-                } else if (index == 4) {
+                } else if (index == 2) {
                     name = 'personal-setInfo';
                     url = '../personal/setInfo.html';
                 }

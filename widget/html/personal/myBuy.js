@@ -22,7 +22,7 @@ define(function(require, exports, module) {
                 }
                 Http.ajax({
                     data: {
-                        order: this.list[index]._id,
+                        phoneID: this.list[index].phone,
                         isSure: 1,
                     },
                     url: '/order/receivePhone',
@@ -54,6 +54,10 @@ define(function(require, exports, module) {
                 });
             },
             onPhotoTap: function(index) {
+                if(!myBuy.list[index].photo){
+                    _g.toast('尚无发货照片!');
+                    return;
+                }
                 openPic = [];
                 var a = CONFIG.HOST + myBuy.list[index].photo;
                 openPic = openPic.push(a);
@@ -61,16 +65,6 @@ define(function(require, exports, module) {
                     // showList:false,
                     imageUrls:[a],
                 });
-                // _g.openWin({
-                //     header: {
-                //         data: {
-                //             title: '订单列表',
-                //         },
-                //     },
-                //     name: 'personal-orderList',
-                //     url: '../personal/orderList.html',
-                //     slidBackEnabled: false,
-                // });
             }
         },
     });

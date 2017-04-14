@@ -12,6 +12,10 @@ define(function(require, exports, module) {
         created: function() {},
         methods: {
             onModifyPhone: function(index) {
+                if(this.list[index].isPurchased){
+                    _g.toast('已出售不能更改!');
+                    return
+                };
                 _g.openWin({
                     header: {
                         data: {
@@ -80,7 +84,12 @@ define(function(require, exports, module) {
             error: function(err) {}
         })
     }
-    getPostList()
+    getPostList();
+    api.addEventListener({
+        nam:'modifyPhone'
+    },function () {
+        getPostList()
+    })
     module.exports = {};
 
 });

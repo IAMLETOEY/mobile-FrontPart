@@ -1,5 +1,7 @@
 <div class="ui-body">
-    <img id="headPic" src="{{addPic|trans-avatar}}"  v-touch:tap="onPicTap">
+    <div class="ui-head">
+        <img id="headPic" src="{{avatar|trans-avatar}}"  v-touch:tap="onPicTap">
+    </div>
     <div class="ui-main">
         <div class="weui-cells">
             <div class="weui-cell">
@@ -43,7 +45,7 @@
             <div class="weui-cell">
                 
             </div>
-            <a v-touch:tap="onSure" class="weui-btn weui-btn_primary">确定</a>
-            <a v-touch:tap="onCancel" class="weui-btn weui-btn_warn">取消</a>
+            <a v-touch:tap="onSure" style="width: 95%" class="weui-btn weui-btn_primary">确定</a>
+            <a v-touch:tap="onCancel" style="width: 95%" class="weui-btn weui-btn_warn">取消</a>
         </div>
     </div>
