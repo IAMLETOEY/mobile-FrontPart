@@ -10,14 +10,14 @@ define(function(require, exports, module) {
             root: CONFIG.HOST,
             list: [],
             rowList: [{
-                pic: '../../image/swiper1.jpg',
-                title: '测试测试'
+                pic: '../../image/swiper1.png',
+                title: '旧物换钱'
             }, {
-                pic: '../../image/swiper2.jpg',
-                title: '测试测试'
+                pic: '../../image/swiper2.png',
+                title: '环保'
             }, {
                 pic: '../../image/swiper3.jpg',
-                title: '测试测试'
+                title: '新品推荐'
             }]
         },
         created: function() {
