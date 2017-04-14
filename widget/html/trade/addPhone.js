@@ -17,7 +17,7 @@ define(function(require, exports, module) {
             border: '',
             screen: '',
             maintenance: '',
-            other: ''
+            failure: ''
         },
         created: function() {
 
@@ -41,7 +41,7 @@ define(function(require, exports, module) {
                         border: PhoneInfo.border,
                         screen: PhoneInfo.screen,
                         maintenance: PhoneInfo.maintenance,
-                        other: PhoneInfo.other
+                        failure: PhoneInfo.failure
                     },
                     url: '/phone/imputedPrice',
                     // lock: false,

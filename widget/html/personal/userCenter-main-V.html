@@ -1,5 +1,5 @@
 <div class="ui-body">
-    <img id="headPic" src="../../image/tod.png" alt="">
+    <img id="headPic" src="{{avatar|trans-avatar}}" alt="">
     <div class="weui-cells">
         <a class="weui-cell weui-cell_access" href="javascript:;" v-for="item in list" v-touch:tap="onToTap($index)">
             <div class="weui-cell__hd"><img src="{{item.pic}}" alt="" style="width: .4rem;height: .4rem"></div>

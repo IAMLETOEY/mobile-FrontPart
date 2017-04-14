@@ -43,6 +43,24 @@ define(function(require, exports, module) {
                     }
                 });
             },
+            onCertifiedTap:function () {
+                Http.ajax({
+                    data: {
+                        phone: getPrice.phone,
+                        requireCertified: 1
+                    },
+                    isSync: true,
+                    url: '/phone/modifyPhone',
+                    success: function(ret) {
+                        if (ret.code == 200) {
+                            _g.toast('申请成功!')
+                        } else {
+                            _g.toast(ret.msg);
+                        }
+                    },
+                    error: function(err) {}
+                });
+            },
             onPostPhone: function() {
                 if (!getPrice.picture) {
                     _g.toast('请先上传图片!')

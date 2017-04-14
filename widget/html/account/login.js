@@ -65,13 +65,29 @@ define(function(require, exports, module) {
                         _g.setLS('UserInfo', ret.data.UserInfo);
                         _g.setLS('sessionID', ret.data.sessionID);
                         _g.toast('登录成功');
-                        api && api.openWin({
-                            name: 'main-index',
-                            url: '../main/index.html',
-                            bounces: false,
-                            slidBackEnabled: false
-                        });
-                       
+                        if (ret.data.UserInfo.type == 2) {
+                            _g.openWin({
+                                header: {
+                                    data: {
+                                        title: '商品列表'
+                                    }
+                                },
+                                name: 'product-productList',
+                                url: '../product/productList.html',
+                                bounces: false,
+                                slidBackEnabled: false,
+                                pageParam: {}
+                            });
+                        } else {
+                            api && api.openWin({
+                                name: 'main-index',
+                                url: '../main/index.html',
+                                bounces: false,
+                                slidBackEnabled: false
+                            });
+                        }
+
+
                         _g.closeWins(['account-login-win'])
                     } else {
                         _g.toast(ret.msg);

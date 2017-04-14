@@ -2,61 +2,122 @@ define(function(require, exports, module) {
     var Http = require('U/http');
     var UserInfo = _g.getLS('UserInfo');
     var sessionID = _g.getLS('sessionID');
-    var UserInfo = new Vue({
+    var phoneID = api.pageParam.phoneID;
+    var modifyPhone = new Vue({
         el: '#modifyPhone',
         template: _g.getTemplate('personal/modifyPhone-main-V'),
         data: {
-            title: '订单列表',
-            text: '小米note 32G 全网通',
+            model: '苹果',
+            modelName: '',
+            net: '',
+            internal: '',
+            RAM: '',
+            color: '',
+            buyChannel: '',
+            warranty: false,
+            border: '',
+            screen: '',
+            maintenance: '',
+            failure: '',
+            sellerPrice: 0,
+            isAdmin: UserInfo.type == 2?0:1
         },
         created: function() {
 
         },
         methods: {
-            onSubmitModify:function () {
-                _g.openWin({
-                    header: {
+            onSubmitModify: function() {
+                if (UserInfo.type == 2) {
+                    Http.ajax({
                         data: {
-                            title: '',
+                            phone: phoneID,
+                            net: modifyPhone.net,
+                            internal: modifyPhone.internal,
+                            RAM: modifyPhone.RAM,
+                            color: modifyPhone.color,
+                            buyChannel: modifyPhone.buyChannel,
+                            warranty: modifyPhone.warranty,
+                            border: modifyPhone.border,
+                            screen: modifyPhone.screen,
+                            maintenance: modifyPhone.maintenance,
+                            failure: modifyPhone.failure,
+                            sellerPrice: modifyPhone.sellerPrice,
                         },
-                    },
-                    name: 'personal-myPost',
-                    url: '../personal/myPost.html',
-                    slidBackEnabled: false,
-                });
+                        url: '/phone/certifyPhone',
+                        // lock: false,
+                        success: function(ret) {
+                            if (ret.code == 200) {
+                                alert('修改成功!');
+                                api && api.closeWin();
+                            } else {
+                                _g.toast(ret.msg);
+                            }
+                        },
+                        error: function(err) {}
+                    })
+                } else {
+                    Http.ajax({
+                        data: {
+                            phone: phoneID,
+                            net: modifyPhone.net,
+                            internal: modifyPhone.internal,
+                            RAM: modifyPhone.RAM,
+                            color: modifyPhone.color,
+                            buyChannel: modifyPhone.buyChannel,
+                            warranty: modifyPhone.warranty,
+                            border: modifyPhone.border,
+                            screen: modifyPhone.screen,
+                            maintenance: modifyPhone.maintenance,
+                            failure: modifyPhone.failure,
+                            sellerPrice: modifyPhone.sellerPrice,
+                        },
+                        url: '/phone/modifyPhone',
+                        // lock: false,
+                        success: function(ret) {
+                            if (ret.code == 200) {
+                                alert('修改成功!');
+                                api && api.closeWin();
+                            } else {
+                                _g.toast(ret.msg);
+                            }
+                        },
+                        error: function(err) {}
+                    })
+                }
+
             }
         },
     });
 
-    var tmpl = '<li class="weui-uploader__file" style="background-image:url(#url#)"></li>',
-        $gallery = $("#gallery"),
-        $galleryImg = $("#galleryImg"),
-        $uploaderInput = $("#uploaderInput"),
-        $uploaderFiles = $("#uploaderFiles");
-
-    $uploaderInput.on("change", function(e) {
-        var src, url = window.URL || window.webkitURL || window.mozURL,
-            files = e.target.files;
-        for (var i = 0, len = files.length; i < len; ++i) {
-            var file = files[i];
-
-            if (url) {
-                src = url.createObjectURL(file);
-            } else {
-                src = e.target.result;
-            }
-
-            $uploaderFiles.append($(tmpl.replace('#url#', src)));
-        }
-    });
-    $uploaderFiles.on("click", "li", function() {
-        $galleryImg.attr("style", this.getAttribute("style"));
-        $gallery.fadeIn(100);
-    });
-    $gallery.on("click", function() {
-        $gallery.fadeOut(100);
-    });
-
-
+    function getPhone() {
+        Http.ajax({
+            data: {
+                phone: phoneID,
+                modifyQuery: 1
+            },
+            url: '/phone/getPhone',
+            // lock: false,
+            success: function(ret) {
+                if (ret.code == 200) {
+                    modifyPhone.model = ret.data.model,
+                        modifyPhone.net = ret.data.net,
+                        modifyPhone.internal = ret.data.internal,
+                        modifyPhone.RAM = ret.data.RAM,
+                        modifyPhone.color = ret.data.color,
+                        modifyPhone.buyChannel = ret.data.buyChannel,
+                        modifyPhone.warranty = ret.data.warranty ? 1 : 2,
+                        modifyPhone.border = ret.data.border,
+                        modifyPhone.screen = ret.data.screen,
+                        modifyPhone.maintenance = ret.data.maintenance,
+                        modifyPhone.failure = ret.data.failure,
+                        modifyPhone.sellerPrice = ret.data.sellerPrice
+                } else {
+                    _g.toast(ret.msg);
+                }
+            },
+            error: function(err) {}
+        })
+    }
+    getPhone();
     module.exports = {};
 });

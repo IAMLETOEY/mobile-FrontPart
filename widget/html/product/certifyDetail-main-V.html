@@ -1,0 +1,60 @@
+<div class="weui-panel weui-panel_access">
+    <div class="weui-media-box weui-media-box_text">
+        <img class="ui-productPic" src="{{pic}}" alt="">
+    </div>
+    <div class="weui-media-box weui-media-box_text" style="position: relative;">
+        <h4 class="weui-media-box__title">
+        <span class="ui-sellerPrice">￥{{phoneInfo.sellerPrice}} &nbsp;</span>
+        <span class="ui-imputedPrice1">估算价:</span>
+        <span class="ui-imputedPrice2">  {{phoneInfo.imputedPrice}}</span>
+        </h4>
+        <p class="weui-media-box__desc">{{phoneInfo.model}}&nbsp;{{phoneInfo.net}}&nbsp;{{phoneInfo.internal}}</p>
+        <div v-show="phoneInfo.isCertified" class="isCertified">
+            <i style="font-size: .8rem;" class="weui-icon-success weui-icon_msg"></i>
+            <p class="weui-media-box__desc">已认证</p>
+        </div>
+    </div>
+    <div class="weui-media-box weui-media-box_text" style="position: relative;">
+        <h4 class="weui-media-box__title"> 用户信息</h4>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">昵称:&nbsp;&nbsp;&nbsp;{{addUser.nickName}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">电话:&nbsp;&nbsp;&nbsp;{{addUser.account}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">地址:&nbsp;&nbsp;&nbsp;{{addUser.address}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">证件:&nbsp;&nbsp;&nbsp;{{addUser.idCard}}</span>
+        </p>
+        
+    </div>
+    <div class="weui-media-box weui-media-box_text">
+        <h4 class="weui-media-box__title"> 详细参数</h4>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">购买渠道:&nbsp;&nbsp;&nbsp;{{phoneInfo.buyChannel}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">保修情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.warranty}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">边框情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.border}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">维修情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.maintenance}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">屏幕情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.screen}}</span>
+        </p>
+        <p class="weui-media-box__desc">
+            <span class="ui-phoneDetail">故障情况:&nbsp;&nbsp;&nbsp;{{phoneInfo.failure}}</span>
+        </p>
+    </div>
+</div>
+<div class="ui-addComment">
+    <div v-touch:tap="onModifyTap" class="weui-btn weui-btn_default">修改手机</div>
+</div>
+<div class="ui-purchanse">
+    <div v-touch:tap="onCertifyTap" class="weui-btn weui-btn_primary">通过认证</div>
+</div>

@@ -11,13 +11,14 @@ define(function(require, exports, module) {
             address: '',
             receiver: '',
             receiverPhone: '',
+            price: 0,
         },
         created: function() {
 
         },
         methods: {
             onPayTap: function() {
-                if(!(addOrder.address && addOrder.receiver &&addOrder.receiverPhone)){
+                if (!(addOrder.address && addOrder.receiver && addOrder.receiverPhone)) {
                     _g.toast('请填写收货信息!')
                     return;
                 }
@@ -50,14 +51,29 @@ define(function(require, exports, module) {
                     },
                     error: function(err) {}
                 })
-
-
-
             }
         },
     });
 
-
+    function getPrice() {
+        Http.ajax({
+            data: {
+                phone: phoneID
+            },
+            url: '/phone/getPhone',
+            // lock: false,
+            success: function(ret) {
+                if (ret.code == 200) {
+                    addOrder.price = ret.data.sellerPrice
+                } else {
+                    _g.toast(ret.msg);
+                }
+            },
+            error: function(err) {}
+        })
+    };
+    getPrice();
+    
     module.exports = {};
 
 });

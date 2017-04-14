@@ -15,7 +15,7 @@
                 <input class="weui-input" type="number" placeholder="请输入您心理价格" v-model="sellerPrice">
             </div>
             <div class="weui-cell__ft">
-                <button class="weui-vcode-btn">申请认证</button>
+                <button class="weui-vcode-btn" v-touch:tap="onCertifiedTap">申请认证</button>
             </div>
         </div>
     </div>

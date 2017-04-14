@@ -25,20 +25,38 @@ define(function(require, exports, module) {
         },
         methods: {
             onDetailTap: function(index) {
-                _g.openWin({
-                    header: {
-                        data: {
-                            title: '商品详情',
+                if (UserInfo.type == 2) {
+                    _g.openWin({
+                        header: {
+                            data: {
+                                title: '手机详情',
+                            },
                         },
-                    },
-                    name: 'product-productDetail',
-                    url: '../product/productDetail.html',
-                    bounces: false,
-                    slidBackEnabled: false,
-                    pageParam: {
-                        phoneID: productList.list[index]._id
-                    }
-                });
+                        name: 'product-certifyDetail',
+                        url: '../product/certifyDetail.html',
+                        bounces: false,
+                        slidBackEnabled: false,
+                        pageParam: {
+                            phoneID: productList.list[index]._id
+                        }
+                    });
+                } else {
+                    _g.openWin({
+                        header: {
+                            data: {
+                                title: '商品详情',
+                            },
+                        },
+                        name: 'product-productDetail',
+                        url: '../product/productDetail.html',
+                        bounces: false,
+                        slidBackEnabled: false,
+                        pageParam: {
+                            phoneID: productList.list[index]._id
+                        }
+                    });
+                }
+
             }
         },
     });
@@ -55,15 +73,22 @@ define(function(require, exports, module) {
     });
 
     function getProductList() {
+        if (UserInfo.type == 2) {
+            var isCertified = 1;
+        } else {
+            var isCertified = 0;
+        }
         Http.ajax({
-            data: {},
+            data: {
+                isCertified: isCertified
+            },
             url: '/phone/list',
             lock: false,
             success: function(ret) {
                 if (ret.code == 200) {
                     productList.list = ret.data;
                 } else {
-                    _g.toast(ret.message);
+                    _g.toast(ret.msg);
                 }
             },
             error: function(err) {}

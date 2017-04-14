@@ -22,7 +22,8 @@ define(function(require, exports, module) {
            },{
             pic:'../../image/account/setting.png',
             name: '我的设置',
-           }]
+           }],
+           avatar: UserInfo.avatar
         },
         created: function() {
 
