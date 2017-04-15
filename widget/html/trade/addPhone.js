@@ -28,8 +28,8 @@ define(function(require, exports, module) {
                     _g.toast('请补充完善信息!');
                     return;
                 }
-                if(this.RAM > 6){
-                    _g.toast('请填写真实内存信息!');
+                if(this.RAM > 6 || this.RAM < 1){
+                    _g.toast('请检查运行内存信息!');
                     return;
                 }
                 Http.ajax({
