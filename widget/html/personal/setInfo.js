@@ -93,8 +93,6 @@ define(function(require, exports, module) {
             success: function(ret) {
                 if (ret.code == 200) {
                     setInfo.avatar = ret.data.avatar;
-
-                    alert(setInfo.avatar)
                     _g.setLS('UserInfo', ret.data);
                 } else {
                     _g.toast(ret.msg);

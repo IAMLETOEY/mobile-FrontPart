@@ -62,7 +62,7 @@ define(function(require, exports, module) {
                                 }
                             });
                         } else {
-                            _g.toast(ret.message);
+                            _g.toast(ret.msg);
                         }
                     },
                     error: function(err) {}
