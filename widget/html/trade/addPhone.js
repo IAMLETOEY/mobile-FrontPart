@@ -10,7 +10,7 @@ define(function(require, exports, module) {
             modelName: '',
             net: '',
             internal: '',
-            RAM: '',
+            RAM: 1,
             color: '',
             buyChannel: '',
             warranty: false,
@@ -28,7 +28,7 @@ define(function(require, exports, module) {
                     _g.toast('请补充完善信息!');
                     return;
                 }
-                if(this.RAM >6 || this.RAM <2){
+                if(this.RAM > 6){
                     _g.toast('请填写真实内存信息!');
                     return;
                 }
